@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import styled from 'styled-components';
 import Home from './Home';
@@ -55,6 +56,16 @@ function App() {
 				<Route path='/recipe/:id' component={Recipe} />
 			</PhoneBody>
 		</MainBody>
+=======
+import './styles.css';
+const key = process.env.REACT_APP_API_KEY;
+
+function App() {
+	return (
+		<div>
+			<h1>Hello World!</h1>
+		</div>
+>>>>>>> 0a6346a... begin scaffolding home page
 	);
 }
 
