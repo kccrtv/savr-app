@@ -1,20 +1,28 @@
 import './styles.css';
 import phonetop from './components/assets/Header.svg';
-// import phonebottom from './components/assets/bottom-footer.svg';
+import phonebottom from './components/assets/bottom-footer.svg';
 import users from './components/assets/users-solid.svg';
 import gradcap from './components/assets/gradcap-solid.svg';
 import home from './components/assets/home-solid.svg';
 import faves from './components/assets/fire-wave-solid.svg';
 import more from './components/assets/ellipses-solid.svg';
+import search from './components/assets/search.svg';
 
 function AppTwo() {
 	return (
 		<div>
 			<main>
 				{/* Top */}
+				<img className='phone-top' src={phonetop} alt='phone base'></img>
 				<div className='frame'>
-					<img src={phonetop} alt='phone base'></img>
-
+					{/* Search Bar */}
+					<form className='search-form'>
+						<div className='searchbar'>
+							<img className='search-icon' src={search} alt='search'></img>
+							<input placeholder='Search'></input>
+						</div>
+						<button className='button-search'>go</button>
+					</form>
 					{/* Middle */}
 					<figure className='hero'>
 						<div className='hero-image'></div>
@@ -26,16 +34,16 @@ function AppTwo() {
 					<div className='thumbnail-section first-section'>
 						<ul className='thumbs'>
 							<li className='thumb'>
-								<h5>1</h5>
+								<p></p>
 							</li>
 							<li className='thumb'>
-								<h5>2</h5>
+								<p></p>
 							</li>
 							<li className='thumb'>
-								<h5>3</h5>
+								<p></p>
 							</li>
 							<li className='thumb'>
-								<h5>4</h5>
+								<p></p>
 							</li>
 						</ul>
 					</div>
@@ -44,48 +52,46 @@ function AppTwo() {
 					<div className='thumbnail-section second-section'>
 						<ul className='thumbs'>
 							<li className='thumb'>
-								<h5>5</h5>
+								<p></p>
 							</li>
 							<li className='thumb'>
-								<h5>6</h5>
+								<p></p>
 							</li>
 							<li className='thumb'>
-								<h5>7</h5>
+								<p></p>
 							</li>
 							<li className='thumb'>
-								<h5>8</h5>
+								<p></p>
 							</li>
 						</ul>
 					</div>
 
-					{/* Bottom */}
-					<div className='navbar-container'>
-						<div className='icon-container'>
-							<input className='icon' type='image' src={users} alt='icon' />
-							<p className='icon-text'>Community</p>
-						</div>
-						<div className='icon-container'>
-							<input className='icon' type='image' src={gradcap} alt='icon' />
-							<p className='icon-text'>Skills</p>
-						</div>
-						<div className='icon-container'>
-							<input className='icon' type='image' src={home} alt='icon' />
-							<p className='icon-text'>Home</p>
-						</div>
-						<div className='icon-container'>
-							<input className='icon' type='image' src={faves} alt='icon' />
-							<p className='icon-text'>Favorites</p>
-						</div>
-						<div className='icon-container'>
-							<input className='icon' type='image' src={more} alt='icon' />
-							<p className='icon-text'>More</p>
-						</div>
-					</div>
 					<section className='bottom-nav'>
-						{/* <img
-							className='phone-bottom'
-							src={phonebottom}
-							alt='phone base'></img> */}
+						{/* Bottom */}
+						<div className='navbar-container'>
+							<div className='icon-container'>
+								<input className='icon' type='image' src={users} alt='icon' />
+								<p className='icon-text'>Community</p>
+							</div>
+							<div className='icon-container'>
+								<input className='icon' type='image' src={gradcap} alt='icon' />
+								<p className='icon-text'>Skills</p>
+							</div>
+							<div className='icon-container'>
+								<input className='icon' type='image' src={home} alt='icon' />
+								<p className='icon-text'>Home</p>
+							</div>
+							<div className='icon-container'>
+								<input className='icon' type='image' src={faves} alt='icon' />
+								<p className='icon-text'>Favorites</p>
+							</div>
+							<div className='icon-container'>
+								<input className='icon' type='image' src={more} alt='icon' />
+								<p className='icon-text'>More</p>
+							</div>
+						</div>
+
+						{/* <img className='phone' src={phonebottom} alt='phone base'></img> */}
 					</section>
 				</div>
 			</main>
