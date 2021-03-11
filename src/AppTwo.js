@@ -34,6 +34,24 @@ function AppTwo() {
 							</li>
 						</ul>
 					</div>
+					{/* Another Middle Horizontal Scroll */}
+					<h4 className='thumbnail-header'>Header</h4>
+					<div className='thumbnail-section'>
+						<ul className='thumbs'>
+							<li className='thumb'>
+								<h5>1</h5>
+							</li>
+							<li className='thumb'>
+								<h5>2</h5>
+							</li>
+							<li className='thumb'>
+								<h5>3</h5>
+							</li>
+							<li className='thumb'>
+								<h5>4</h5>
+							</li>
+						</ul>
+					</div>
 
 					{/* Bottom */}
 					<section className='bottom-nav'>
@@ -49,8 +67,5 @@ export default AppTwo;
 
 /* resources: https://www.w3schools.com/cssref/css_units.asp
  *https://developer.mozilla.org/en-US/docs/Web/CSS/repeat()
- https://uxdesign.cc/creating-horizontal-scrolling-containers-the-right-way-css-grid-c256f64fc585
- https://codepen.io/dannievinther/pen/vVydZJ
- 
-https://medium.com/samsung-internet-dev/horizontally-scrolling-panes-with-clean-html-and-modern-css-7372596932c7
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_hor_scroll
 */
