@@ -90,6 +90,7 @@ function AppTwo() {
 								<p className='icon-text'>More</p>
 							</div>
 						</div>
+						<hr />
 
 						{/* <img className='phone' src={phonebottom} alt='phone base'></img> */}
 					</section>
