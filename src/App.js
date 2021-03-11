@@ -1,11 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles.css';
 const key = process.env.REACT_APP_API_KEY;
 
 function App() {
-	console.log(key);
 	return (
-		<div className='App'>
+		<div>
 			<h1>Hello World!</h1>
 		</div>
 	);
