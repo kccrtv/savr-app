@@ -9,6 +9,7 @@ function NavBar() {
 			<NavContainer>
 				<NavBarIconsText />
 			</NavContainer>
+			<hr />
 		</BottomNav>
 	);
 }

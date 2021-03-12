@@ -7,7 +7,7 @@ function ThumbSection(props) {
 	return (
 		<Fragment>
 			<ThumbHeader>{props.header}</ThumbHeader>
-			<ThumbContainer>
+			<ThumbContainer className={props.className}>
 				<ThumbUnorderedList></ThumbUnorderedList>
 			</ThumbContainer>
 		</Fragment>

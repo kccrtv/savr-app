@@ -1,8 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components';
-import AppTwo from './AppTwo';
+import Home from './Home';
 
-ReactDOM.render(<AppTwo />, document.getElementById('root'));
-
-// Font Icons from fontawesome
+ReactDOM.render(<Home />, document.getElementById('root'));

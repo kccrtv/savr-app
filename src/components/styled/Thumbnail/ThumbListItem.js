@@ -1,12 +1,12 @@
 import React from 'react';
-import ThumbItem from './ThumbItem';
+import ThumbItemStyle from './ThumbItemStyle';
 import ThumbImage from './ThumbImage';
 
 function ThumbListItem(props) {
 	return (
-		<ThumbItem>
+		<ThumbItemStyle>
 			<ThumbImage src={props.src} alt='recipe' />
-		</ThumbItem>
+		</ThumbItemStyle>
 	);
 }
 

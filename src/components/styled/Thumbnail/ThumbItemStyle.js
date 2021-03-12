@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ThumbItem = styled.li`
+const ThumbItemStyle = styled.li`
 	list-style: none;
 	width: 72px;
 	height: 72px;
@@ -11,4 +11,4 @@ const ThumbItem = styled.li`
 	grid-template-columns: repeat(8, 8px);
 `;
 
-export default ThumbItem;
+export default ThumbItemStyle;

@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import SearchIcon from './SearchIcon';
 import search from '../../assets/search.svg';
 import SearchInput from './SearchInput';
