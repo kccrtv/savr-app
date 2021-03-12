@@ -207,12 +207,12 @@ main {
 	z-index: 2;
 	/* grid-row: 32; */
 	/* position: absolute; */
-	height: 95px;
+	height: 122px;
 }
 
 .icon-container {
 	text-align: center;
-	margin-bottom: 16px;
+	margin-bottom: 0px;
 }
 
 .icon-text {
