@@ -1,14 +1,14 @@
 import React, { Component, useState, useEffect } from 'react';
-// import styled from 'styled-components';
+
 import SearchBar from './components/styled/Search/SearchBar';
 import './styles.css';
 import phonetop from './components/assets/Header.svg';
-import users from './components/assets/users-solid.svg';
-import gradcap from './components/assets/gradcap-solid.svg';
-import home from './components/assets/home-solid.svg';
-import faves from './components/assets/fire-wave-solid.svg';
-import more from './components/assets/ellipses-solid.svg';
-// import search from './components/assets/search.svg';
+// import users from './components/assets/users-solid.svg';
+// import gradcap from './components/assets/gradcap-solid.svg';
+// import home from './components/assets/home-solid.svg';
+// import faves from './components/assets/fire-wave-solid.svg';
+// import more from './components/assets/ellipses-solid.svg';
+import NavBar from './components/styled/Nav/NavBar';
 
 function AppTwo() {
 	const key = process.env.REACT_APP_API_KEY;
@@ -103,8 +103,9 @@ function AppTwo() {
 						</ul>
 					</div>
 
-					<section className='bottom-nav'>
-						{/* Bottom */}
+					<NavBar />
+					{/* Bottom */}
+					{/* <section className='bottom-nav'>
 						<div className='navbar-container'>
 							<div className='icon-container'>
 								<input className='icon' type='image' src={users} alt='icon' />
@@ -128,7 +129,7 @@ function AppTwo() {
 							</div>
 						</div>
 						<hr />
-					</section>
+					</section> */}
 				</div>
 			</main>
 		</div>
@@ -142,4 +143,5 @@ export default AppTwo;
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_hor_scroll
  https://stackoverflow.com/questions/8683528/embed-image-in-a-button-element
  https://github.com/styled-components/styled-components/issues/3045
+ https://flaviocopes.com/jsx-return-multiple-elements/
 */
