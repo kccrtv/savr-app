@@ -9,6 +9,7 @@ import phonetop from './components/assets/Header.svg';
 // import faves from './components/assets/fire-wave-solid.svg';
 // import more from './components/assets/ellipses-solid.svg';
 import NavBar from './components/styled/Nav/NavBar';
+import Hero from './components/styled/Hero/Hero';
 
 function AppTwo() {
 	const key = process.env.REACT_APP_API_KEY;
@@ -57,14 +58,15 @@ function AppTwo() {
 					<SearchBar />
 
 					{/* Middle */}
-					<figure className='hero'>
+					<Hero />
+					{/* <figure className='hero'>
 						<div className='hero-image'>
 							<img src='' alt='hero random recipe' />
 						</div>
 						<h3 className='hero-title'>
 							<span>Title</span>
 						</h3>
-					</figure>
+					</figure> */}
 
 					{/* Middle Horizontal Scroll */}
 					<h4 className='thumbnail-header first-header'>Header</h4>
