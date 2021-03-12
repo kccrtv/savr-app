@@ -10,6 +10,7 @@ import phonetop from './components/assets/Header.svg';
 // import more from './components/assets/ellipses-solid.svg';
 import NavBar from './components/styled/Nav/NavBar';
 import Hero from './components/styled/Hero/Hero';
+import ThumbSection from './components/styled/Thumbnail/ThumbSection';
 
 function AppTwo() {
 	const key = process.env.REACT_APP_API_KEY;
@@ -69,7 +70,8 @@ function AppTwo() {
 					</figure> */}
 
 					{/* Middle Horizontal Scroll */}
-					<h4 className='thumbnail-header first-header'>Header</h4>
+					<ThumbSection header='1st Header' src='' />
+					{/* <h4 className='thumbnail-header first-header'>Header</h4>
 					<div className='thumbnail-section first-section'>
 						<ul className='thumbs'>
 							<li className='thumb'>
@@ -85,9 +87,10 @@ function AppTwo() {
 								<p></p>
 							</li>
 						</ul>
-					</div>
+					</div> */}
 					{/* Another Middle Horizontal Scroll */}
-					<h4 className='thumbnail-header second-header'>Header</h4>
+					<ThumbSection header='2nd Header' src='' />
+					{/* <h4 className='thumbnail-header second-header'>Header</h4>
 					<div className='thumbnail-section second-section'>
 						<ul className='thumbs'>
 							<li className='thumb'>
@@ -103,7 +106,7 @@ function AppTwo() {
 								<img src='' alt='random recipe' />
 							</li>
 						</ul>
-					</div>
+					</div> */}
 
 					<NavBar />
 					{/* Bottom */}
