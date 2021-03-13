@@ -6,7 +6,8 @@ import SearchBarDiv from './components/styled/Results/SearchBarDiv';
 import ThumbUnorderedStyle from './components/styled/Thumbnail/ThumbUnorderedStyle';
 import ResultRow from './components/styled/Results/ResultRow';
 import MainBody from './components/styled/Phone/MainBody';
-import NavBack from './components/styled/Nav2/NavBack';
+// import NavBack from './components/styled/Nav2/NavBack';
+import NavSimple from './components/styled/Nav2/NavSimple';
 import PhoneBody from './components/styled/Phone/PhoneBody';
 import SearchResultsHeader from './components/styled/Results/SearchResultsHeader';
 import PhoneTop from './components/styled/Phone/PhoneTop';
@@ -16,6 +17,14 @@ import HeroText from './components/styled/Hero/HeroText';
 import HeroTextSpan from './components/styled/Hero/HeroTextSpan';
 import RecipeHeader from './components/styled/Recipe/RecipeHeader';
 import ThumbHeader from './components/styled/Thumbnail/ThumbHeader';
+import RecipeDetailDiv from './components/styled/Recipe/RecipeDetailDiv';
+import RecipeHeaderDetail from './components/styled/Recipe/RecipeHeaderDetail';
+import RecipeHeaderDetailStyle from './components/styled/Recipe/RecipeHeaderDetailStyle';
+import RecipeHeaderDetailDiv from './components/styled/Recipe/RecipeHeaderDetailDiv';
+import RecipeTabContainer from './components/styled/Recipe/RecipeTabContainer';
+import RecipeTabDiv from './components/styled/Recipe/RecipeTabDiv';
+import RecipeTab from './components/styled/Recipe/RecipeTab';
+import TabDiv from './components/styled/Recipe/TabDiv';
 
 function Recipe(props) {
 	return (
@@ -28,40 +37,17 @@ function Recipe(props) {
 						<RecipeHeader>
 							<HeroTextSpan>Recipe Card Title</HeroTextSpan>
 						</RecipeHeader>
-						<div className='header-details'>
-							<div id='header-detail'>
-								<p>20 min</p>
-								<p>
-									<strong>Prep Time</strong>
-								</p>
-							</div>
-							<div id='header-detail'>
-								<p>20 min</p>
-								<p>
-									<strong>Cook Time</strong>
-								</p>
-							</div>
-						</div>
 
-						<div className='tabs'>
-							<div className='tab active'>
-								<a href='' className='tab-name'>
-									Recipe
-								</a>
-							</div>
+						<RecipeDetailDiv>
+							<RecipeHeaderDetailDiv text='20 min' textStrong='Prep Time' />
+							<RecipeHeaderDetailDiv text='20 min' textStrong='Cook Time' />
+						</RecipeDetailDiv>
 
-							<div className='tab inactive'>
-								<a href='' className='tab-name'>
-									Cookware
-								</a>
-							</div>
-
-							<div className='tab inactive'>
-								<a href='' className='tab-name'>
-									Ingredients
-								</a>
-							</div>
-						</div>
+						<RecipeTabContainer>
+							<TabDiv className='active' href='' header='Recipe' />
+							<TabDiv className='inactive' href='' header='Cookware' />
+							<TabDiv className='inactive' href='' header='Ingredients' />
+						</RecipeTabContainer>
 					</div>
 
 					<section id='recipe-body'>
@@ -80,7 +66,7 @@ function Recipe(props) {
 								rice cooker and add water or chicken broth. Let cook.
 							</p>
 						</div> */}
-						<div className='list-container'>
+						{/* <div className='list-container'>
 							<ul className='cookware'>
 								<li className='cookware-item'>
 									<input
@@ -99,12 +85,12 @@ function Recipe(props) {
 									spatula
 								</li>
 							</ul>
-						</div>
+						</div> */}
 					</section>
 				</Content>
 				{/* <button id='primary-button'>Let's get cookin'</button> */}
 			</PhoneBody>
-			<NavBack />
+			<NavSimple />
 		</MainBody>
 	);
 }
