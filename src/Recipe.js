@@ -25,6 +25,9 @@ import RecipeTabContainer from './components/styled/Recipe/RecipeTabContainer';
 import RecipeTabDiv from './components/styled/Recipe/RecipeTabDiv';
 import RecipeTab from './components/styled/Recipe/RecipeTab';
 import TabDiv from './components/styled/Recipe/TabDiv';
+import CheckListTableLi from './components/styled/Recipe/CheckListTableLi';
+import CheckListTableUl from './components/styled/Recipe/CheckListTableUl';
+import CheckListTable from './components/styled/Recipe/CheckListTable';
 
 function Recipe(props) {
 	return (
@@ -44,8 +47,8 @@ function Recipe(props) {
 						</RecipeDetailDiv>
 
 						<RecipeTabContainer>
-							<TabDiv className='active' href='' header='Recipe' />
-							<TabDiv className='inactive' href='' header='Cookware' />
+							<TabDiv className='inactive' href='' header='Recipe' />
+							<TabDiv className='active' href='' header='Cookware' />
 							<TabDiv className='inactive' href='' header='Ingredients' />
 						</RecipeTabContainer>
 					</div>
@@ -66,26 +69,15 @@ function Recipe(props) {
 								rice cooker and add water or chicken broth. Let cook.
 							</p>
 						</div> */}
-						{/* <div className='list-container'>
-							<ul className='cookware'>
-								<li className='cookware-item'>
-									<input
-										className='checkbox'
-										type='checkbox'
-										name='equipment'
-										value='equipment'></input>
-									spatula
-								</li>
-								<li className='cookware-item'>
-									<input
-										className='checkbox'
-										type='checkbox'
-										name='equipment'
-										value='equipment'></input>
-									spatula
-								</li>
-							</ul>
-						</div> */}
+
+						{/* <CheckListTable>
+							<CheckListTableUl>
+								<CheckListTableLi text='rice cooker'></CheckListTableLi>
+								<CheckListTableLi text='spatula'></CheckListTableLi>
+								<CheckListTableLi text='chefs knife'></CheckListTableLi>
+								<CheckListTableLi text='saute pan'></CheckListTableLi>
+							</CheckListTableUl>
+						</CheckListTable> */}
 					</section>
 				</Content>
 				{/* <button id='primary-button'>Let's get cookin'</button> */}
