@@ -4,11 +4,13 @@ import SearchBarDiv from './components/styled/Results/SearchBarDiv';
 import ThumbUnorderedStyle from './components/styled/Thumbnail/ThumbUnorderedStyle';
 import ResultRow from './components/styled/Results/ResultRow';
 import MainBody from './components/styled/Phone/MainBody';
-import NavBar from './components/styled/Nav/NavBar';
+
+import NavBack from './components/styled/Nav2/NavBack';
 import PhoneBody from './components/styled/Phone/PhoneBody';
 import SearchResultsHeader from './components/styled/Results/SearchResultsHeader';
 import PhoneTop from './components/styled/Phone/PhoneTop';
 import Content from './components/styled/Phone/Content';
+import NavBack from './components/styled/Nav2/NavBack';
 
 function Results(props) {
 	return (
@@ -35,7 +37,8 @@ function Results(props) {
 					</ThumbUnorderedStyle> */}
 				</Content>
 			</PhoneBody>
-			<NavBar />
+
+			<NavBack />
 		</MainBody>
 	);
 }

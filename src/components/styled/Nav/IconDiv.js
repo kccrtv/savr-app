@@ -5,7 +5,7 @@ import NavIconText from './NavIconText';
 
 function IconDiv(props) {
 	return (
-		<IconDivStyle>
+		<IconDivStyle row={props.row} column={props.column}>
 			<Icon src={props.src} />
 			<NavIconText>{props.text}</NavIconText>
 		</IconDivStyle>

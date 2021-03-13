@@ -10,6 +10,7 @@ import SearchResultsHeader from './components/styled/Results/SearchResultsHeader
 import PhoneTop from './components/styled/Phone/PhoneTop';
 import Content from './components/styled/Phone/Content';
 import SearchBar from './components/styled/Search/SearchBar';
+import NavBack from './components/styled/Nav2/NavBack';
 
 function Results(props) {
 	return (
@@ -56,7 +57,7 @@ function Results(props) {
 					</ThumbUnorderedStyle>
 				</Content>
 			</PhoneBody>
-			<NavBar />
+			<NavBack />
 		</MainBody>
 	);
 }
