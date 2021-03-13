@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ThumbContainer = styled.div`
 	display: flex;
-	overflow: auto;
+	overflow: hidden;
 	margin: 0 42px;
 `;
 

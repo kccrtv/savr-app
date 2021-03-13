@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-const HeroText = styled.h3`
+const HeroText = styled.a`
 	font-weight: 700;
-	grid-row: 5;
+	font-size: 2rem;
+	grid-row: 10;
 	grid-column: 2 / span 12;
 `;
 

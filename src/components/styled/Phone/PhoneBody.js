@@ -7,7 +7,7 @@ const PhoneBody = styled.section`
 	background: #ffffff;
 	box-shadow: 0 0 23px 0 #aaaaaa;
 	border-radius: 30px;
-	z-index: -1;
+
 	display: grid;
 	grid-template-rows: repeat(10, 80px);
 `;

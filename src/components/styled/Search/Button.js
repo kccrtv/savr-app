@@ -5,7 +5,7 @@ const Button = styled.button`
 	background-color: #fa7500;
 	border-radius: 8px;
 	color: white;
-	height: 1.5rem;
+	height: 2rem;
 	width: ${(props) => props.width || '72px'};
 	margin-left: 8px;
 	display: ${(props) => (props.display = 'inline')};

@@ -4,6 +4,7 @@ import search from '../../assets/search.svg';
 import SearchInput from '../Search/SearchInput';
 import SearchDiv from '../Search/SearchDiv';
 import SearchForm from '../Search/SearchForm';
+import Button from '../Search/Button';
 
 const SearchBarDiv = (props) => {
 	return (
