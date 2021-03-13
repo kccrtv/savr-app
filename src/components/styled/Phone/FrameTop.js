@@ -6,10 +6,6 @@ const FrameTop = styled.div`
 	height: 88px;
 	margin: 0;
 	padding: 0;
-	position: fixed;
-	top: 0;
-	top: 0;
-	z-index: 3;
 `;
 
 export default FrameTop;

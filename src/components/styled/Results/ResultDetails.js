@@ -9,6 +9,9 @@ const ResultDetails = styled.p`
 	margin: 0;
 	height: 40px;
 	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2; /* number of lines to show */
+	-webkit-box-orient: vertical;
 `;
 
 export default ResultDetails;

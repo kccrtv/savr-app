@@ -7,14 +7,12 @@ import NavBarStyle from '../Nav/NavBar';
 
 function PhoneBase() {
 	return (
-		<Fragment>
-			<MainBody>
-				<PhoneBody>
-					<PhoneTop />
-				</PhoneBody>
-				<NavBar />
-			</MainBody>
-		</Fragment>
+		<MainBody>
+			<PhoneBody>
+				<PhoneTop />
+			</PhoneBody>
+			<NavBar />
+		</MainBody>
 	);
 }
 

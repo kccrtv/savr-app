@@ -8,3 +8,8 @@ const NavBarStyle = styled.div`
 	padding: 0;
 `;
 export default NavBarStyle;
+
+// grid-row: 32;
+// position: absolute;
+// 	bottom: 48px;
+// 		z-index: 4;

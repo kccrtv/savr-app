@@ -5,13 +5,17 @@ const PhoneBody = styled.section`
 	width: 414px;
 	height: ${(props) => props.height || '720px'};
 	background: #ffffff;
-	overflow: ${(props) => props.overflow || 'hidden'};
-	overflow-y: auto;
 	box-shadow: 0 0 23px 0 #aaaaaa;
 	border-radius: 30px;
 	z-index: -1;
 	display: grid;
 	grid-template-rows: repeat(10, 80px);
+	overflow-y: scroll;
 `;
 
 export default PhoneBody;
+// display: flex;
+// flex-direction: column;
+// align-items: stretch;
+// justify-content: space-evenly;
+// overflow: ${(props) => props.overflow || 'hidden'};

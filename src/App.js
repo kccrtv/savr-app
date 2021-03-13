@@ -14,12 +14,7 @@ import PhoneBase from './components/styled/Phone/PhoneBase';
 const key = process.env.REACT_APP_API_KEY;
 
 function App() {
-	return (
-		<PhoneBase>
-			<Hero />
-			<ThumbSection />
-		</PhoneBase>
-	);
+	return <PhoneBase></PhoneBase>;
 }
 
 export default App;
