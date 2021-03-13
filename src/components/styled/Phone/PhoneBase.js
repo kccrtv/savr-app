@@ -4,12 +4,14 @@ import PhoneBody from './PhoneBody';
 import PhoneTop from './PhoneTop';
 import NavBar from '../Nav/NavBar';
 import NavBarStyle from '../Nav/NavBar';
+import Content from './Content';
 
 function PhoneBase() {
 	return (
 		<MainBody>
 			<PhoneBody>
 				<PhoneTop />
+				<Content></Content>
 			</PhoneBody>
 			<NavBar />
 		</MainBody>

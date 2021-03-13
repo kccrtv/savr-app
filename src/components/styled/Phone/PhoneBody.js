@@ -10,12 +10,6 @@ const PhoneBody = styled.section`
 	z-index: -1;
 	display: grid;
 	grid-template-rows: repeat(10, 80px);
-	overflow-y: scroll;
 `;
 
 export default PhoneBody;
-// display: flex;
-// flex-direction: column;
-// align-items: stretch;
-// justify-content: space-evenly;
-// overflow: ${(props) => props.overflow || 'hidden'};

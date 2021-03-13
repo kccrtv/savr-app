@@ -8,15 +8,13 @@ import SearchForm from './SearchForm';
 
 const SearchBar = (props) => {
 	return (
-		<div>
-			<SearchForm>
-				<SearchDiv>
-					<SearchIcon src={search} alt='search icon' />
-					<SearchInput placeholder='Search' />
-				</SearchDiv>
-				<Button>{props.buttonText}</Button>
-			</SearchForm>
-		</div>
+		<SearchForm>
+			<SearchDiv>
+				<SearchIcon src={search} alt='search icon' />
+				<SearchInput placeholder={props.placeholder} />
+			</SearchDiv>
+			<Button>{props.buttonText}</Button>
+		</SearchForm>
 	);
 };
 
