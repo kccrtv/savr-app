@@ -1,4 +1,3 @@
-import './styles.css';
 const key = process.env.REACT_APP_API_KEY;
 
 function App() {

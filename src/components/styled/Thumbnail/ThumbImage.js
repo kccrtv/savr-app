@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const ThumbImage = styled.img`
-	width: 72px;
-	height: 72px;
+	width: ${(props) => props.width || '72px'};
+	height: ${(props) => props.height || '72px'};
 	border-radius: 10px;
 `;
 

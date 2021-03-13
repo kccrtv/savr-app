@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
-const ThumbUnorderedStyle = styled.ul`
-	padding: 0;
+const ResultRowStyle = styled.li`
+	list-style: none;
+	margin: 0 auto;
+	padding: 8px;
 	display: flex;
 	flex-direction: ${(props) => props.direction || 'row'};
 `;
 
-export default ThumbUnorderedStyle;
+export default ResultRowStyle;

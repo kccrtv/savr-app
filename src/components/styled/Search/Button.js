@@ -6,8 +6,9 @@ const Button = styled.button`
 	border-radius: 8px;
 	color: white;
 	height: 1.5rem;
-	width: 72px;
+	width: ${(props) => props.width || '72px'};
 	margin-left: 8px;
+	display: ${(props) => (props.display = 'inline')};
 `;
 
 export default Button;

@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './Home';
+import Results from './Results';
+// import Home from './Home';
+import './styles.css';
 
-ReactDOM.render(<Home />, document.getElementById('root'));
+ReactDOM.render(<Results />, document.getElementById('root'));

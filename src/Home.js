@@ -48,7 +48,7 @@ function Home() {
 			<MainBody>
 				<PhoneTop />
 				<FrameStyle>
-					<SearchBar />
+					<SearchBar buttonText='go' />
 					<Hero />
 					<ThumbSection
 						className='thumbnail-section'

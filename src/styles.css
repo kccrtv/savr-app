@@ -11,10 +11,3 @@ body {
 .thumbnail-section-webkit-scrollbar {
 	display: none;
 }
-
-hr {
-	width: 35%;
-	background-color: black;
-	height: 7px;
-	border-radius: 100px;
-}

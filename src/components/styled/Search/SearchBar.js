@@ -6,7 +6,7 @@ import Button from './Button';
 import SearchDiv from './SearchDiv';
 import SearchForm from './SearchForm';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
 	return (
 		<div>
 			<SearchForm>
@@ -14,7 +14,7 @@ const SearchBar = () => {
 					<SearchIcon src={search} alt='search icon' />
 					<SearchInput placeholder='Search' />
 				</SearchDiv>
-				<Button>go</Button>
+				<Button>{props.buttonText}</Button>
 			</SearchForm>
 		</div>
 	);

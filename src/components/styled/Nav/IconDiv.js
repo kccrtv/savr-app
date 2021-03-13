@@ -1,15 +1,15 @@
 import React from 'react';
-import IconContainer from './IconContainer';
+import IconDivStyle from './IconDivStyle';
 import Icon from './Icon';
 import NavIconText from './NavIconText';
 
-function NavBarIcon(props) {
+function IconDiv(props) {
 	return (
-		<IconContainer>
+		<IconDivStyle>
 			<Icon src={props.src} />
 			<NavIconText>{props.text}</NavIconText>
-		</IconContainer>
+		</IconDivStyle>
 	);
 }
 
-export default NavBarIcon;
+export default IconDiv;
