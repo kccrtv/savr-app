@@ -4,8 +4,9 @@
 
 body {
 	font-family: 'Roboto Condensed', sans-serif;
-	background-color: #;
 	background-image: url('https://transparenttextures.com/patterns/food.png');
+	display: grid;
+	grid-template-rows: repeat(13, 88px);
 }
 
 .thumbnail-section-webkit-scrollbar {

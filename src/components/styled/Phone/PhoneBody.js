@@ -6,11 +6,12 @@ const PhoneBody = styled.section`
 	height: ${(props) => props.height || '720px'};
 	background: #ffffff;
 	overflow: ${(props) => props.overflow || 'hidden'};
-	display: inline-flex;
-	flex-direction: column;
-	padding-top: 48px;
+	overflow-y: auto;
 	box-shadow: 0 0 23px 0 #aaaaaa;
 	border-radius: 30px;
+	z-index: -1;
+	display: grid;
+	grid-template-rows: repeat(10, 80px);
 `;
 
 export default PhoneBody;

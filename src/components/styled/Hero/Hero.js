@@ -7,12 +7,10 @@ import HeroText from './HeroText';
 function Hero(props) {
 	return (
 		<HeroFigure>
-			<div>
-				<HeroImage src={props.src} alt='recipe hero image' />
-				<HeroText>
-					<HeroTextSpan>Title</HeroTextSpan>
-				</HeroText>
-			</div>
+			<HeroImage src={props.src} alt='recipe hero image' />
+			<HeroText>
+				<HeroTextSpan>Title</HeroTextSpan>
+			</HeroText>
 		</HeroFigure>
 	);
 }

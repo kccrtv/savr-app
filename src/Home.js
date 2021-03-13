@@ -1,12 +1,14 @@
 import React, { Fragment, Component, useState, useEffect } from 'react';
-import './styles.css';
 import SearchBar from './components/styled/Search/SearchBar';
 import NavBar from './components/styled/Nav/NavBar';
 import Hero from './components/styled/Hero/Hero';
 import ThumbSection from './components/styled/Thumbnail/ThumbSection';
-import FrameStyle from './components/styled/Phone/FrameStyle';
-import PhoneTop from './components/styled/Phone/PhoneTop';
+// import FrameStyle from './components/styled/Phone/FrameStyle';
+// import PhoneTop from './components/styled/Phone/PhoneTop';
 import MainBody from './components/styled/Phone/MainBody';
+import PageBodyStyle from './components/styled/Phone/PageBodyStyle';
+import PhoneBody from './components/styled/Phone/PhoneBody';
+import FrameTop from './components/styled/Phone/FrameTop';
 
 function Home() {
 	const key = process.env.REACT_APP_API_KEY;
@@ -44,10 +46,10 @@ function Home() {
 	// }, []);
 
 	return (
-		<Fragment>
-			<MainBody>
-				<PhoneTop />
-				<FrameStyle>
+		<MainBody>
+			<FrameTop />
+			<PhoneBody overflow='auto'>
+				<PageBodyStyle>
 					<SearchBar buttonText='go' />
 					<Hero />
 					<ThumbSection
@@ -61,9 +63,9 @@ function Home() {
 						src=''
 					/>
 					<NavBar />
-				</FrameStyle>
-			</MainBody>
-		</Fragment>
+				</PageBodyStyle>
+			</PhoneBody>
+		</MainBody>
 	);
 }
 

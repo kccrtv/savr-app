@@ -5,6 +5,8 @@ const BottomNavSection = styled.section`
 	display: grid;
 	justify-content: space-around;
 	grid-template-columns: repeat(5, 8ch);
+	border-radius: 0 0 30px 30px;
+	height: 104px;
 `;
 
 export default BottomNavSection;

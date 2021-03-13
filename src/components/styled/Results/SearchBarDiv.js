@@ -6,7 +6,7 @@ import SearchInput from '../Search/SearchInput';
 import SearchDiv from '../Search/SearchDiv';
 import SearchForm from '../Search/SearchForm';
 
-const SearchBar = (props) => {
+const SearchBarDiv = (props) => {
 	return (
 		<div>
 			<SearchForm>
@@ -19,4 +19,4 @@ const SearchBar = (props) => {
 	);
 };
 
-export default SearchBar;
+export default SearchBarDiv;

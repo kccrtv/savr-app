@@ -7,6 +7,7 @@ const SearchInput = styled.input`
 	width: ${(props) => props.width || '200px'};
 	opacity: ${(props) => props.opacity || '0.9'};
 	color: black;
+	height: 2rem;
 `;
 
 export default SearchInput;
