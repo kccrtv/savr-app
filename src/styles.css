@@ -160,3 +160,134 @@ main {
 	border-radius: 10px;
 	border: 1px dotted purple;
 }
+
+/* Recipe Card */
+.header-details {
+	padding: 0 16px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+}
+
+#header-detail {
+	padding: 8px 16px 0 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.header-details p {
+	display: inline-block;
+	margin: 8px 0 0 0;
+	padding: 0;
+}
+
+/* Recipe Tabs */
+.tabs {
+	display: flex;
+	justify-content: space-around;
+}
+
+.tab-name {
+	text-decoration: none;
+	color: #555556;
+	margin: 16px 8px 0 0;
+	padding: 8px;
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: 0.9rem;
+	line-height: 16px;
+	letter-spacing: 2px;
+}
+
+.tab {
+	margin: 0;
+	display: inline-flex;
+}
+
+.active {
+	border-bottom: 4px solid gray;
+}
+
+.inactive {
+	border-bottom: none;
+}
+
+#recipe-body {
+	padding: 0 16px;
+}
+
+.recipe-section {
+	font-weight: 700;
+	font-size: 1.2rem;
+	color: black;
+	margin: 8px 0;
+}
+
+.skills-bar {
+	background: #fafaf9;
+	box-shadow: 0px 0px 23px rgba(0, 0, 0, 0.1);
+	border-radius: 11px;
+	display: grid;
+	grid-template-columns: repeat(8, 16px 32px);
+	align-items: center;
+	justify-content: space-around;
+}
+
+.skills-icon {
+	padding: 0 8px;
+	grid-column: 2;
+}
+
+.skills-text {
+	color: #595959;
+	display: inline-block;
+	grid-column: 4 / 15;
+}
+
+.steps-container {
+	display: flex;
+	align-items: baseline;
+}
+
+.step-no {
+	display: inline;
+	margin: 0;
+}
+
+.step {
+	display: inline;
+	margin: 0 8px;
+}
+
+#primary-button {
+	background-color: #007aff;
+	color: white;
+	border-radius: 14px;
+	border: none;
+	width: 374px;
+	height: 3rem;
+	grid-row: 8;
+	z-index: 2;
+}
+
+.list-container {
+	display: inline-flex;
+	flex-direction: row;
+}
+
+.cookware {
+	padding: 0;
+	margin: 4px 0;
+}
+
+.cookware-item {
+	list-style: none;
+	margin: 0 auto;
+	padding: 8px 0;
+}
+
+.checkbox {
+	transform: scale(2);
+	margin-right: 16px;
+}

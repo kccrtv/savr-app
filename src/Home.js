@@ -49,7 +49,7 @@ function Home() {
 				<PhoneTop />
 				<Content>
 					<SearchBar placeholder='Search' buttonText='go' />
-					<Hero />
+					<Hero title='i am a title of your food' />
 					<ThumbSection
 						className='thumbnail-section'
 						header='1st Header'

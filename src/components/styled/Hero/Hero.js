@@ -9,7 +9,7 @@ function Hero(props) {
 		<HeroFigure>
 			<HeroImage src={props.src} alt='recipe hero image' />
 			<HeroText>
-				<HeroTextSpan>I am a Title</HeroTextSpan>
+				<HeroTextSpan>{props.title}</HeroTextSpan>
 			</HeroText>
 		</HeroFigure>
 	);
