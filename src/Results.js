@@ -63,3 +63,9 @@ function Results(props) {
 }
 
 export default Results;
+
+/**
+ *Search Recipes: titleMatch
+ Recipe Sorting Options
+ Autocomplete Recipe Search
+ */

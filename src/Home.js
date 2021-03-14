@@ -1,4 +1,4 @@
-import React, { Fragment, Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBar from './components/styled/Search/SearchBar';
 import NavBar from './components/styled/Nav/NavBar';
 import Hero from './components/styled/Hero/Hero';
@@ -7,9 +7,12 @@ import MainBody from './components/styled/Phone/MainBody';
 import PhoneBody from './components/styled/Phone/PhoneBody';
 import Content from './components/styled/Phone/Content';
 import PhoneTop from './components/styled/Phone/PhoneTop';
+const key = process.env.REACT_APP_API_KEY;
 
 function Home() {
-	const key = process.env.REACT_APP_API_KEY;
+	// https://api.spoonacular.com/recipes/random?limitLicense=true&number=4&intolerances=%27nuts%27
+	// https://api.spoonacular.com/recipes/random?limitLicense=true&number=4&cuisine='italian'
+
 	const [hero, setHero] = useState('');
 	const [heroTitle, setHeroTitle] = useState('');
 	const [thumb, setThumb] = useState('');
@@ -70,3 +73,7 @@ function Home() {
 export default Home;
 
 //put class name (webkit scrollbar in styled-component)
+
+/**
+ *Show Images https://spoonacular.com/cdn/ingredients_100x100/apple.jpg
+ */

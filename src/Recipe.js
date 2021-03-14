@@ -78,3 +78,10 @@ function Recipe(props) {
 }
 
 export default Recipe;
+
+/**
+ * Get Recipe Information: readyInMinutes
+ * Analyzed Recipe Instructions
+ * Search Recipes: maxReadyTime, equipment, titleMatch
+ * Search Food Videos
+ */

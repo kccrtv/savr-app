@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 // import Results from './Results';
 // import Recipe from './Recipe';
 import Home from './Home';
-// import Home2 from './Home2';
 import './styles.css';
 
 ReactDOM.render(<Home />, document.getElementById('root'));
