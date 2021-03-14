@@ -10,6 +10,7 @@ const PrimaryButton = styled.button`
 	grid-row: 8;
 	z-index: 2;
 	margin: 0 auto;
+	font-size: 1.5rem;
 `;
 
 export default PrimaryButton;

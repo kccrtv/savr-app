@@ -30,6 +30,7 @@ import CheckListTableUl from './components/styled/Recipe/CheckListTableUl';
 import CheckListTable from './components/styled/Recipe/CheckListTable';
 import PrimaryButton from './components/styled/Recipe/PrimaryButton';
 import RecipeStep from './components/styled/Recipe/RecipeStep';
+import RecipeSkill from './components/styled/Recipe/RecipeSkill';
 
 function Recipe(props) {
 	return (
@@ -59,12 +60,9 @@ function Recipe(props) {
 						<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
 							Preparation
 						</RecipeHeaderDetailStyle>
-						{/* <h4 className='recipe-section'> Preparation</h4> */}
-						<div className='skills-bar'>
-							<img className='skills-icon' src={gradicon} alt='skills' />
-							<p className='skills-text'>Basic knife skills</p>
-							<ArrowRight src={arrowright} alt='next' />
-						</div>
+
+						<RecipeSkill text='Basic knife skills' />
+						<RecipeSkill text='Cornstarch slurry' />
 
 						<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
 							Steps
@@ -75,17 +73,17 @@ function Recipe(props) {
 								rice cooker and add water or chicken broth. Let cook.'
 						/>
 
-						{/* <CheckListTable>
+						<CheckListTable>
 							<CheckListTableUl>
 								<CheckListTableLi text='rice cooker'></CheckListTableLi>
 								<CheckListTableLi text='spatula'></CheckListTableLi>
 								<CheckListTableLi text='chefs knife'></CheckListTableLi>
 								<CheckListTableLi text='saute pan'></CheckListTableLi>
 							</CheckListTableUl>
-						</CheckListTable> */}
+						</CheckListTable>
 					</section>
 				</Content>
-				{/* <PrimaryButton>Let's get cookin'</PrimaryButton> */}
+				<PrimaryButton>Let's get cookin'</PrimaryButton>
 			</PhoneBody>
 			<NavSimple />
 		</MainBody>
