@@ -21,7 +21,7 @@ const HeroImage = styled.img`
 const HeroText = styled.h2`
 	font-weight: 600;
 	font-size: 1.7rem;
-	grid-row: 10;
+	grid-row: 9;
 	grid-column: 2 / span 17;
 	line-height: 0.9;
 	text-shadow: #fc0 1px 0 10px;

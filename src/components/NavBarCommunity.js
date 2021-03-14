@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import header from './components/assets/header.svg';
+import header from './assets/header.svg';
 import NavBar from './NavBar';
 
 // STYLED COMPONENTS

@@ -9,3 +9,6 @@ https://github.com/styled-components/styled-components/issues/3045
 https://flaviocopes.com/jsx-return-multiple-elements/
 https://css-tricks.com/text-input-expanding-bottom-border/
 https://www.w3docs.com/snippets/css/how-to-set-the-size-of-a-checkbox-with-html-and-css.html
+https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook
+
+figma ui

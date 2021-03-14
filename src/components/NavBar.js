@@ -5,9 +5,11 @@ import gradcap from './assets/gradcap-solid.svg';
 import home from './assets/home-solid.svg';
 import faves from './assets/fire-wave-solid.svg';
 import more from './assets/ellipses-solid.svg';
+import Home from '../Home';
+
 import { Route, Link } from 'react-router-dom';
 
-const NavBarStyle = styled.div`
+const NavBarStyle = styled.nav`
 	border-radius: 0 0 30px;
 	grid-row: 31 / span 4;
 	width: 414px;
@@ -63,13 +65,6 @@ const Hr = styled.hr`
 `;
 
 function NavBar() {
-	{
-		/* <Link to='/'></Link>
-<Link to='/'></Link>
-<Link to='/'></Link>
-<Link to='/'></Link> */
-	}
-
 	return (
 		<NavBarStyle>
 			<BottomNavSection>
@@ -78,6 +73,7 @@ function NavBar() {
 				<Link to='/'>
 					<IconDiv src={home} text='Home' />
 				</Link>
+				<Route path='/' exact component={Home}></Route>
 				<IconDiv src={faves} text='Favorites' />
 				<IconDiv src={more} text='More' />
 

@@ -100,10 +100,9 @@ function Home() {
 	const rowOne = category.slice(0, 4);
 	const rowTwo = category.slice(5, 9);
 
-	function getHero(hero) {
+	function getHero() {
 		const heroUrl = `https://www.themealdb.com/api/json/v2/${key}/random.php`;
-
-		fetch(heroUrl)
+		return fetch(heroUrl)
 			.then((res) => res.json())
 			.then((res) => {
 				let newHero = res.meals;
@@ -112,10 +111,10 @@ function Home() {
 			.catch((err) => console.log(err));
 	}
 
-	function getCategory(category) {
+	function getCategory() {
 		const categoryUrl = `https://www.themealdb.com/api/json/v2/${key}/randomselection.php`;
 
-		fetch(categoryUrl)
+		return fetch(categoryUrl)
 			.then((res) => res.json())
 			.then((res) => {
 				let latest = res.meals;
@@ -129,6 +128,7 @@ function Home() {
 		getHero(hero);
 		getCategory(category);
 		setCategory(thumbsArr);
+		// eslint-disable-next-line
 	}, []);
 
 	return (
