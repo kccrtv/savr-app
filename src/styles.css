@@ -3,7 +3,7 @@
 }
 
 body {
-	font-family: 'Roboto Condensed', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	background-image: url('https://transparenttextures.com/patterns/food.png');
 	display: grid;
 	grid-template-rows: repeat(13, 88px);
