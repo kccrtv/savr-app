@@ -1,129 +1,120 @@
-import React from 'react';
-import header from './components/assets/Header.svg';
+import React, { useState, useEffect } from 'react';
+import SearchBar from './components/styled/Search/SearchBar';
 import NavBar from './components/styled/Nav/NavBar';
-import SearchForm from './components/styled/Main/SearchForm';
-import SearchIcon from './components/styled/Search/SearchIcon';
-import search from './components/assets/search.svg';
+import Hero from './components/styled/Hero/Hero';
+import ThumbSection from './components/styled/Thumbnail/ThumbSection';
+import MainBody from './components/styled/Phone/MainBody';
+import PhoneBody from './components/styled/Phone/PhoneBody';
+import Content from './components/styled/Phone/Content';
+import PhoneTop from './components/styled/Phone/PhoneTop';
+import ThumbListItem from './components/styled/Thumbnail/ThumbListItem';
+import { getByTitle } from '@testing-library/dom';
+import HeroImage from './components/styled/Hero/HeroImage';
 
-function Home2(props) {
+const key = process.env.REACT_APP_API_KEY;
+
+function Home() {
+	const [hero, setHero] = useState(null);
+	function getHero(hero) {
+		const url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&limitLicense=true&tags=dessert&number=1`;
+
+		fetch(url)
+			.then((res) => res.json())
+			.then((res) => {
+				let newHero = res.recipes;
+				setHero(newHero);
+			})
+			.catch((err) => console.log(err));
+	}
+
+	useEffect(() => {
+		getHero(hero);
+	}, []);
+
+	const [category, setCategory] = useState('');
+	function getCategory(category) {
+		const url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&limitLicense=true&number=2&intolerances=nuts`;
+		fetch(url)
+			.then((res) => res.json())
+			.then((res) => {
+				let results = res.recipes;
+				setCategory(results);
+			})
+			.catch((err) => console.log(err));
+	}
+
+	function createThumb(thumb) {
+		return <HeroImage src={thumb.image} />;
+	}
+	useEffect(() => {
+		getCategory(category);
+		console.log(category);
+	}, []);
+
+	// https://api.spoonacular.com/recipes/random?limitLicense=true&number=4&cuisine='italian'
+
 	return (
-		<main>
-			<section id='phone-body'>
-				<div id='frame-top'>
-					<img src={header} alt='phone top' />
-				</div>
-				<div id='content'>
-					{/* <SearchForm /> */}
-					<form id='search-form'>
-						<div id='search-div'>
-							<SearchIcon src={search} alt='search icon' />
-							<input
-								id='search-input'
-								placeholder='Search'
-								type='text'
-								name='searchString'
-								required
-							/>
-						</div>
-						<button id='primary-button' type='submit'>
-							go
-						</button>
-					</form>
-					<figure id='hero'>
-						<img id='hero-image' alt='recipe'></img>
-						<a id='hero-title' href=''>
-							<h4>
-								<span>Title</span>
-							</h4>
-						</a>
-					</figure>
-					<div>
-						<h4 id='thumb-header'>Category</h4>
-						<div id='row'>
-							<div id='thumb-container'>
-								<ul id='thumb-unordered'>
-									<li id='thumb-li'>
-										<a href=''>
-											<img
-												id='thumb-img'
-												src='https://i.pinimg.com/originals/81/c8/34/81c8344d55fe2a12cc8b3a9a6b86de85.jpg'
-												alt='recipe'></img>
-										</a>
-									</li>
-									<li id='thumb-li'>
-										<a href=''>
-											<img
-												id='thumb-img'
-												src='https://i.pinimg.com/originals/81/c8/34/81c8344d55fe2a12cc8b3a9a6b86de85.jpg'
-												alt='recipe'></img>
-										</a>
-									</li>
-									<li id='thumb-li'>
-										<a href=''>
-											<img
-												id='thumb-img'
-												src='https://i.pinimg.com/originals/81/c8/34/81c8344d55fe2a12cc8b3a9a6b86de85.jpg'
-												alt='recipe'></img>
-										</a>
-									</li>
-									<li id='thumb-li'>
-										<a href=''>
-											<img
-												id='thumb-img'
-												src='https://i.pinimg.com/originals/81/c8/34/81c8344d55fe2a12cc8b3a9a6b86de85.jpg'
-												alt='recipe'></img>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div>
-						<h4 id='thumb-header'>Category</h4>
-						<div id='row'>
-							<div id='thumb-container'>
-								<ul id='thumb-unordered'>
-									<li id='thumb-li'>
-										<a href=''>
-											<img
-												id='thumb-img'
-												src='https://i.pinimg.com/originals/81/c8/34/81c8344d55fe2a12cc8b3a9a6b86de85.jpg'
-												alt='recipe'></img>
-										</a>
-									</li>
-									<li id='thumb-li'>
-										<a href=''>
-											<img
-												id='thumb-img'
-												src='https://i.pinimg.com/originals/81/c8/34/81c8344d55fe2a12cc8b3a9a6b86de85.jpg'
-												alt='recipe'></img>
-										</a>
-									</li>
-									<li id='thumb-li'>
-										<a href=''>
-											<img
-												id='thumb-img'
-												src='https://i.pinimg.com/originals/81/c8/34/81c8344d55fe2a12cc8b3a9a6b86de85.jpg'
-												alt='recipe'></img>
-										</a>
-									</li>
-									<li id='thumb-li'>
-										<a href=''>
-											<img
-												id='thumb-img'
-												src='https://i.pinimg.com/originals/81/c8/34/81c8344d55fe2a12cc8b3a9a6b86de85.jpg'
-												alt='recipe'></img>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+		<MainBody>
+			<PhoneBody>
+				<PhoneTop />
+				<Content>
+					<SearchBar placeholder='Search' buttonText='go' />
+					{hero ? (
+						<Hero key={hero[0].id} src={hero[0].image} title={hero[0].title} />
+					) : null}
+				</Content>
+			</PhoneBody>
 			<NavBar />
-		</main>
+		</MainBody>
 	);
 }
 
-export default Home2;
+export default Home;
+
+//put class name (webkit scrollbar in styled-component)
+
+/**
+ *Show Images https://spoonacular.com/cdn/ingredients_100x100/apple.jpg
+ */
+
+/* {thumbs
+							? thumbs.map((thumb) => (
+									<ThumbListItem key={thumb.id} src={thumb.image} />
+							  ))
+							: null} */
+/**
+ * 		
+ * 
+ * 
+ * 
+ * 
+ * 
+ * <ThumbSection header='first row of thumbs'>
+						{thumbs.map((thumb) => {
+							return <ThumbListItem key={thumb.id} src={thumb.image} />;
+						})}
+						;
+					</ThumbSection>
+ */
+
+/**
+ * 	const [thumbs, setThumbs] = useState('');
+
+	// function createThumb(thumb) {
+	// 	return <ThumbListItem key={thumb.id} src={thumb.image} />;
+	// }
+
+	// function getThumbs(firstRowThumb) {
+	const url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&limitLicense=true&number=4&cuisine='italian`;
+
+	useEffect(() => {
+		fetch(url)
+			.then((res) => res.json())
+			.then((res) => {
+				setThumbs(res.recipes);
+				console.log(thumbs);
+			})
+			.catch((err) => console.log(err));
+	}, []);
+	// }
+ */

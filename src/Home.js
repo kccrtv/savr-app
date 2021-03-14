@@ -16,42 +16,38 @@ const key = process.env.REACT_APP_API_KEY;
 function Home() {
 	const [hero, setHero] = useState(null);
 	function getHero(hero) {
-		const url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&limitLicense=true&tags=dessert&number=1`;
+		const heroUrl = `https://www.themealdb.com/api/json/v2/${key}/random.php`;
 
-		fetch(url)
+		fetch(heroUrl)
 			.then((res) => res.json())
 			.then((res) => {
-				let newHero = res.recipes;
+				let newHero = res.meals;
 				setHero(newHero);
+			})
+			.catch((err) => console.log(err));
+	}
+
+	function getCategory(category) {
+		const categoryUrl = `https://www.themealdb.com/api/json/v2/${key}/latest.php`;
+
+		fetch(categoryUrl)
+			.then((res) => res.json())
+			.then((res) => {
+				let latest = res.meals;
+				setCategory(latest);
 			})
 			.catch((err) => console.log(err));
 	}
 
 	useEffect(() => {
 		getHero(hero);
-	}, []);
-
-	const [category, setCategory] = useState('');
-	function getCategory(category) {
-		const url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&limitLicense=true&number=2&intolerances=nuts`;
-		fetch(url)
-			.then((res) => res.json())
-			.then((res) => {
-				let results = res.recipes;
-				setCategory(results);
-			})
-			.catch((err) => console.log(err));
-	}
-
-	function createThumb(thumb) {
-		return <HeroImage src={thumb.image} />;
-	}
-	useEffect(() => {
 		getCategory(category);
-		console.log(category);
+		var thumbsArr = [];
+		category.forEach((meal) => thumbsArr.push(meal.strMealThumb));
+		console.log(thumbsArr);
 	}, []);
 
-	// https://api.spoonacular.com/recipes/random?limitLicense=true&number=4&cuisine='italian'
+	const [category, setCategory] = useState([]);
 
 	return (
 		<MainBody>
@@ -60,8 +56,17 @@ function Home() {
 				<Content>
 					<SearchBar placeholder='Search' buttonText='go' />
 					{hero ? (
-						<Hero key={hero[0].id} src={hero[0].image} title={hero[0].title} />
+						<Hero
+							key={hero[0].idMeal}
+							src={hero[0].strMealThumb}
+							title={hero[0].strMeal}
+						/>
 					) : null}
+
+					{/* {category ? 
+					{category.map((meal) => console.log(meal))}
+					
+					: null} */}
 				</Content>
 			</PhoneBody>
 			<NavBar />
@@ -73,48 +78,4 @@ export default Home;
 
 //put class name (webkit scrollbar in styled-component)
 
-/**
- *Show Images https://spoonacular.com/cdn/ingredients_100x100/apple.jpg
- */
-
-/* {thumbs
-							? thumbs.map((thumb) => (
-									<ThumbListItem key={thumb.id} src={thumb.image} />
-							  ))
-							: null} */
-/**
- * 		
- * 
- * 
- * 
- * 
- * 
- * <ThumbSection header='first row of thumbs'>
-						{thumbs.map((thumb) => {
-							return <ThumbListItem key={thumb.id} src={thumb.image} />;
-						})}
-						;
-					</ThumbSection>
- */
-
-/**
- * 	const [thumbs, setThumbs] = useState('');
-
-	// function createThumb(thumb) {
-	// 	return <ThumbListItem key={thumb.id} src={thumb.image} />;
-	// }
-
-	// function getThumbs(firstRowThumb) {
-	const url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&limitLicense=true&number=4&cuisine='italian`;
-
-	useEffect(() => {
-		fetch(url)
-			.then((res) => res.json())
-			.then((res) => {
-				setThumbs(res.recipes);
-				console.log(thumbs);
-			})
-			.catch((err) => console.log(err));
-	}, []);
-	// }
- */
+// const url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&limitLicense=true&tags=dessert&number=1`;
