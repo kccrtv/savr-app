@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import header from './components/assets/Header.svg';
-import SearchBar from './components/styled/Search/SearchBar';
-import Hero from './components/styled/Hero/Hero';
-import NavBar from './components/styled/Nav/NavBar';
+import header from './components/assets/header.svg';
+import SearchBar from './components/SearchBar';
+import Hero from './components/Hero';
+import NavBar from './components/NavBar';
 const key = process.env.REACT_APP_API_KEY;
 
 // STYLED COMPONENTS

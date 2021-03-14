@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import search from '../../assets/search.svg';
+import search from './assets/search.svg';
 
 const SearchForm = styled.form`
 	display: flex;

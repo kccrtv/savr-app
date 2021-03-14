@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import back from '../../assets/prev.svg';
-import share from '../../assets/share-regular.svg';
-import heart from '../../assets/heart-regular.svg';
+import back from './assets/prev.svg';
+import share from './assets/share-regular.svg';
+import heart from './assets/heart-regular.svg';
 
 const NavBarStyle = styled.div`
 	border-radius: 0 0 30px;

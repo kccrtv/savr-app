@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import back from '../../assets/prev.svg';
+import users from './assets/users-solid.svg';
+import gradcap from './assets/gradcap-solid.svg';
+import home from './assets/home-solid.svg';
+import faves from './assets/fire-wave-solid.svg';
+import more from './assets/ellipses-solid.svg';
+import { Route, Link } from 'react-router-dom';
 
 const NavBarStyle = styled.div`
 	border-radius: 0 0 30px;
@@ -57,15 +62,29 @@ const Hr = styled.hr`
 	border-radius: 100px;
 `;
 
-function NavBack() {
+function NavBar() {
+	{
+		/* <Link to='/'></Link>
+<Link to='/'></Link>
+<Link to='/'></Link>
+<Link to='/'></Link> */
+	}
+
 	return (
 		<NavBarStyle>
 			<BottomNavSection>
-				<IconDiv src={back} />
+				<IconDiv src={users} text='Community' />
+				<IconDiv src={gradcap} text='Skills' />
+				<Link to='/'>
+					<IconDiv src={home} text='Home' />
+				</Link>
+				<IconDiv src={faves} text='Favorites' />
+				<IconDiv src={more} text='More' />
+
 				<Hr />
 			</BottomNavSection>
 		</NavBarStyle>
 	);
 }
 
-export default NavBack;
+export default NavBar;

@@ -1,17 +1,11 @@
-import React, { Fragment, Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-// import SearchBarDiv from './components/styled/Results/SearchBarDiv';
-// import ResultRow from './components/styled/Results/ResultRow';
-
-// import SearchResultsHeader from './components/styled/Results/SearchResultsHeader';
 import search from './components/assets/search.svg';
-// import SearchBar from './components/styled/Search/SearchBar';
-import NavBack from './components/styled/Nav/NavBack';
-import header from './components/assets/Header.svg';
+import NavBack from './components/NavBack';
+import header from './components/assets/header.svg';
 import arrowright from './components/assets/arrow-next-solid.svg';
 
-import NavBar from './components/styled/Nav/NavBar';
-const key = process.env.REACT_APP_API_KEY;
+// const key = process.env.REACT_APP_API_KEY;
 
 // STYLED COMPONENTS
 const MainBody = styled.main`
@@ -61,11 +55,11 @@ const ThumbHeader = styled.h4`
 	letter-spacing: 2px;
 `;
 
-const ThumbContainer = styled.div`
-	display: flex;
-	overflow: hidden;
-	margin: 0 42px;
-`;
+// const ThumbContainer = styled.div`
+// 	display: flex;
+// 	overflow: hidden;
+// 	margin: 0 42px;
+// `;
 
 const ThumbUnorderedList = styled.ul`
 	padding: 0;
@@ -79,16 +73,16 @@ const ThumbImage = styled.img`
 	border-radius: 10px;
 `;
 
-const ThumbItemStyle = styled.li`
-	list-style: none;
-	width: 72px;
-	height: 72px;
-	border-radius: 10px;
-	margin: 0 8px 0 0;
-	display: grid;
-	grid-template-rows: repeat(8, 8px);
-	grid-template-columns: repeat(8, 8px);
-`;
+// const ThumbItemStyle = styled.li`
+// 	list-style: none;
+// 	width: 72px;
+// 	height: 72px;
+// 	border-radius: 10px;
+// 	margin: 0 8px 0 0;
+// 	display: grid;
+// 	grid-template-rows: repeat(8, 8px);
+// 	grid-template-columns: repeat(8, 8px);
+// `;
 
 const SearchForm = styled.form`
 	display: flex;
