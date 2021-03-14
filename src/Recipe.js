@@ -28,6 +28,8 @@ import TabDiv from './components/styled/Recipe/TabDiv';
 import CheckListTableLi from './components/styled/Recipe/CheckListTableLi';
 import CheckListTableUl from './components/styled/Recipe/CheckListTableUl';
 import CheckListTable from './components/styled/Recipe/CheckListTable';
+import PrimaryButton from './components/styled/Recipe/PrimaryButton';
+import RecipeStep from './components/styled/Recipe/RecipeStep';
 
 function Recipe(props) {
 	return (
@@ -54,21 +56,24 @@ function Recipe(props) {
 					</div>
 
 					<section id='recipe-body'>
-						{/* <h4 className='recipe-section'> Preparation</h4>
+						<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
+							Preparation
+						</RecipeHeaderDetailStyle>
+						{/* <h4 className='recipe-section'> Preparation</h4> */}
 						<div className='skills-bar'>
 							<img className='skills-icon' src={gradicon} alt='skills' />
 							<p className='skills-text'>Basic knife skills</p>
 							<ArrowRight src={arrowright} alt='next' />
 						</div>
 
-						<h4 className='recipe-section'>Steps</h4>
-						<div className='steps-container'>
-							<h4 className='step-no'>1</h4>
-							<p className='step'>
-								Rinse uncooked rice a couple of times to remove starch. Place in
-								rice cooker and add water or chicken broth. Let cook.
-							</p>
-						</div> */}
+						<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
+							Steps
+						</RecipeHeaderDetailStyle>
+						<RecipeStep
+							header='1'
+							text='Rinse uncooked rice a couple of times to remove starch. Place in
+								rice cooker and add water or chicken broth. Let cook.'
+						/>
 
 						{/* <CheckListTable>
 							<CheckListTableUl>
@@ -80,7 +85,7 @@ function Recipe(props) {
 						</CheckListTable> */}
 					</section>
 				</Content>
-				{/* <button id='primary-button'>Let's get cookin'</button> */}
+				{/* <PrimaryButton>Let's get cookin'</PrimaryButton> */}
 			</PhoneBody>
 			<NavSimple />
 		</MainBody>
