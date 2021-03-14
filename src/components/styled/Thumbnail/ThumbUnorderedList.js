@@ -1,16 +1,9 @@
-import React from 'react';
-import ThumbUnorderedStyle from './ThumbUnorderedStyle';
-import ThumbListItem from './ThumbListItem'; // create function to map over api results
+import styled from 'styled-components';
 
-function ThumbSection(props) {
-	return <ThumbUnorderedStyle></ThumbUnorderedStyle>;
-}
+const ThumbUnorderedList = styled.ul`
+	padding: 0;
+	display: flex;
+	flex-direction: ${(props) => props.direction || 'row'};
+`;
 
-export default ThumbSection;
-
-// <ThumbUnorderedStyle>
-// 	<ThumbListItem src={props.src} />
-// 	<ThumbListItem src={props.src} />
-// 	<ThumbListItem src={props.src} />
-// 	<ThumbListItem src={props.src} />
-// </ThumbUnorderedStyle>;
+export default ThumbUnorderedList;

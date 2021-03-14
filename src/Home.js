@@ -2,19 +2,27 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from './components/styled/Search/SearchBar';
 import NavBar from './components/styled/Nav/NavBar';
 import Hero from './components/styled/Hero/Hero';
-import ThumbSection from './components/styled/Thumbnail/ThumbSection';
+
 import MainBody from './components/styled/Phone/MainBody';
 import PhoneBody from './components/styled/Phone/PhoneBody';
 import Content from './components/styled/Phone/Content';
 import PhoneTop from './components/styled/Phone/PhoneTop';
-import ThumbListItem from './components/styled/Thumbnail/ThumbListItem';
-import { getByTitle } from '@testing-library/dom';
-import HeroImage from './components/styled/Hero/HeroImage';
+import ThumbLink from './components/styled/Thumbnail/ThumbLink';
+import ThumbImage from './components/styled/Thumbnail/ThumbImage';
+import ThumbItemStyle from './components/styled/Thumbnail/ThumbItemStyle';
+import ThumbContainer from './components/styled/Thumbnail/ThumbContainer';
+import ThumbHeader from './components/styled/Thumbnail/ThumbHeader';
+import ThumbUnorderedList from './components/styled/Thumbnail/ThumbUnorderedList';
 
 const key = process.env.REACT_APP_API_KEY;
 
 function Home() {
 	const [hero, setHero] = useState(null);
+	const [category, setCategory] = useState([]);
+	const thumbsArr = [];
+	const rowOne = category.slice(0, 4);
+	const rowTwo = category.slice(5, 9);
+
 	function getHero(hero) {
 		const heroUrl = `https://www.themealdb.com/api/json/v2/${key}/random.php`;
 
@@ -28,13 +36,14 @@ function Home() {
 	}
 
 	function getCategory(category) {
-		const categoryUrl = `https://www.themealdb.com/api/json/v2/${key}/latest.php`;
+		const categoryUrl = `https://www.themealdb.com/api/json/v2/${key}/randomselection.php`;
 
 		fetch(categoryUrl)
 			.then((res) => res.json())
 			.then((res) => {
 				let latest = res.meals;
 				setCategory(latest);
+				category.forEach((meal) => thumbsArr.push(meal));
 			})
 			.catch((err) => console.log(err));
 	}
@@ -42,12 +51,8 @@ function Home() {
 	useEffect(() => {
 		getHero(hero);
 		getCategory(category);
-		var thumbsArr = [];
-		category.forEach((meal) => thumbsArr.push(meal.strMealThumb));
-		console.log(thumbsArr);
+		setCategory(thumbsArr);
 	}, []);
-
-	const [category, setCategory] = useState([]);
 
 	return (
 		<MainBody>
@@ -63,10 +68,24 @@ function Home() {
 						/>
 					) : null}
 
-					{/* {category ? 
-					{category.map((meal) => console.log(meal))}
-					
-					: null} */}
+					<ThumbHeader>Exotic Eats</ThumbHeader>
+
+					<ThumbContainer>
+						<ThumbUnorderedList>
+							{rowOne.map((meal) => (
+								<ThumbLink href='' key={meal.idMeal} src={meal.strMealThumb} />
+							))}
+						</ThumbUnorderedList>
+					</ThumbContainer>
+
+					<ThumbHeader>Fresh Finds</ThumbHeader>
+					<ThumbContainer>
+						<ThumbUnorderedList>
+							{rowTwo.map((meal) => (
+								<ThumbLink href='' key={meal.idMeal} src={meal.strMealThumb} />
+							))}
+						</ThumbUnorderedList>
+					</ThumbContainer>
 				</Content>
 			</PhoneBody>
 			<NavBar />

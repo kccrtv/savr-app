@@ -2,16 +2,12 @@ import React, { Fragment } from 'react';
 import ThumbContainer from './ThumbContainer';
 import ThumbHeader from './ThumbHeader';
 import ThumbUnorderedList from './ThumbUnorderedList';
-import ThumbUnorderedStyle from './ThumbUnorderedStyle';
 
 function ThumbSection(props) {
 	return (
-		<Fragment>
-			<ThumbHeader>{props.header}</ThumbHeader>
-			<ThumbContainer>
-				<ThumbUnorderedStyle></ThumbUnorderedStyle>
-			</ThumbContainer>
-		</Fragment>
+		<ThumbContainer>
+			<ThumbUnorderedList></ThumbUnorderedList>
+		</ThumbContainer>
 	);
 }
 
@@ -23,3 +19,8 @@ export default ThumbSection;
 // 		<ThumbUnorderedList></ThumbUnorderedList>
 // 	</ThumbContainer>
 // </Fragment>;
+
+/* <ThumbHeader>{props.header}</ThumbHeader>
+			<ThumbContainer>
+				<ThumbUnorderedStyle></ThumbUnorderedStyle>
+			</ThumbContainer> */
