@@ -5,7 +5,7 @@ import ThumbImage from './ThumbImage';
 function ThumbListItem(props) {
 	return (
 		<ThumbItemStyle>
-			<ThumbImage src={props.src} alt='recipe' />
+			<ThumbImage id={props.key} src={props.src} alt='recipe' />
 		</ThumbItemStyle>
 	);
 }

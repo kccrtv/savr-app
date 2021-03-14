@@ -7,44 +7,51 @@ import MainBody from './components/styled/Phone/MainBody';
 import PhoneBody from './components/styled/Phone/PhoneBody';
 import Content from './components/styled/Phone/Content';
 import PhoneTop from './components/styled/Phone/PhoneTop';
+import ThumbListItem from './components/styled/Thumbnail/ThumbListItem';
+import { getByTitle } from '@testing-library/dom';
+import HeroImage from './components/styled/Hero/HeroImage';
+
 const key = process.env.REACT_APP_API_KEY;
 
 function Home() {
-	// https://api.spoonacular.com/recipes/random?limitLicense=true&number=4&intolerances=%27nuts%27
+	const [hero, setHero] = useState(null);
+	function getHero(hero) {
+		const url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&limitLicense=true&tags=dessert&number=1`;
+
+		fetch(url)
+			.then((res) => res.json())
+			.then((res) => {
+				let newHero = res.recipes;
+				setHero(newHero);
+			})
+			.catch((err) => console.log(err));
+	}
+
+	useEffect(() => {
+		getHero(hero);
+	}, []);
+
+	const [category, setCategory] = useState('');
+	function getCategory(category) {
+		const url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&limitLicense=true&number=2&intolerances=nuts`;
+		fetch(url)
+			.then((res) => res.json())
+			.then((res) => {
+				let results = res.recipes;
+				setCategory(results);
+			})
+			.catch((err) => console.log(err));
+	}
+
+	function createThumb(thumb) {
+		return <HeroImage src={thumb.image} />;
+	}
+	useEffect(() => {
+		getCategory(category);
+		console.log(category);
+	}, []);
+
 	// https://api.spoonacular.com/recipes/random?limitLicense=true&number=4&cuisine='italian'
-
-	const [hero, setHero] = useState('');
-	const [heroTitle, setHeroTitle] = useState('');
-	const [thumb, setThumb] = useState('');
-	const [thumbTwo, setThumbTwo] = useState('');
-	// const [dishType, setDishType] = useState('');
-	// const [dishTypeTwo, setDishTypeTwo] = useState('');
-	// const searchOptions = {
-	// 	key: process.env.REACT_APP_API_KEY,
-	// 	limitLicense: true,
-	// 	tags: 'dessert',
-	// 	number: 9,
-	// };
-
-	// useEffect(() => {
-	// 	// const randomSearchOptions = {
-	// 	// 	endpoint: 'https://api.spoonacular.com/recipes/',
-	// 	// 	category: 'random',
-	// 	// 	tags: 'dessert',
-	// 	// 	number: 3,
-	// 	// };
-	// 	// const url = `${randomSearchOptions.endpoint}${randomSearchOptions.category}?apiKey=${key}&limitLicense=true&tags=${randomSearchOptions.tags}&number=${randomSearchOptions.number}`;
-	// 	// const url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&limitLicense=true&tags=dessert&number=3`;
-	// 	fetch(url)
-	// 		.then((res) => res.json())
-	// 		.then((res) => {
-	// 			// console.log(res);
-	// 			console.log(res.recipes);
-	// 		})
-	// 		.catch((err) => {
-	// 			console.log(err);
-	// 		});
-	// }, []);
 
 	return (
 		<MainBody>
@@ -52,17 +59,9 @@ function Home() {
 				<PhoneTop />
 				<Content>
 					<SearchBar placeholder='Search' buttonText='go' />
-					<Hero title='i am a title of your food' />
-					<ThumbSection
-						className='thumbnail-section'
-						header='1st Header'
-						src=''
-					/>
-					<ThumbSection
-						className='thumbnail-section'
-						header='2nd Header'
-						src=''
-					/>
+					{hero ? (
+						<Hero key={hero[0].id} src={hero[0].image} title={hero[0].title} />
+					) : null}
 				</Content>
 			</PhoneBody>
 			<NavBar />
@@ -76,4 +75,46 @@ export default Home;
 
 /**
  *Show Images https://spoonacular.com/cdn/ingredients_100x100/apple.jpg
+ */
+
+/* {thumbs
+							? thumbs.map((thumb) => (
+									<ThumbListItem key={thumb.id} src={thumb.image} />
+							  ))
+							: null} */
+/**
+ * 		
+ * 
+ * 
+ * 
+ * 
+ * 
+ * <ThumbSection header='first row of thumbs'>
+						{thumbs.map((thumb) => {
+							return <ThumbListItem key={thumb.id} src={thumb.image} />;
+						})}
+						;
+					</ThumbSection>
+ */
+
+/**
+ * 	const [thumbs, setThumbs] = useState('');
+
+	// function createThumb(thumb) {
+	// 	return <ThumbListItem key={thumb.id} src={thumb.image} />;
+	// }
+
+	// function getThumbs(firstRowThumb) {
+	const url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&limitLicense=true&number=4&cuisine='italian`;
+
+	useEffect(() => {
+		fetch(url)
+			.then((res) => res.json())
+			.then((res) => {
+				setThumbs(res.recipes);
+				console.log(thumbs);
+			})
+			.catch((err) => console.log(err));
+	}, []);
+	// }
  */

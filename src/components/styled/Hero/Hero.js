@@ -7,7 +7,7 @@ import HeroText from './HeroText';
 function Hero(props) {
 	return (
 		<HeroFigure>
-			<HeroImage src={props.src} alt='recipe hero image' />
+			<HeroImage key={props.key} src={props.src} alt='recipe hero image' />
 			<HeroText>
 				<HeroTextSpan>{props.title}</HeroTextSpan>
 			</HeroText>

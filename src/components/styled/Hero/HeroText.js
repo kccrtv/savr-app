@@ -6,6 +6,7 @@ const HeroText = styled.a`
 	grid-row: 10;
 	grid-column: 2 / span 17;
 	line-height: 0.9;
+	text-shadow: #fc0 1px 0 10px;
 `;
 
 export default HeroText;
