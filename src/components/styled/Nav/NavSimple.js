@@ -1,10 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import users from '../../assets/users-solid.svg';
-import gradcap from '../../assets/gradcap-solid.svg';
-import home from '../../assets/home-solid.svg';
-import faves from '../../assets/fire-wave-solid.svg';
-import more from '../../assets/ellipses-solid.svg';
+import back from '../../assets/prev.svg';
+import share from '../../assets/share-regular.svg';
+import heart from '../../assets/heart-regular.svg';
 
 const NavBarStyle = styled.div`
 	border-radius: 0 0 30px;
@@ -61,15 +59,13 @@ const Hr = styled.hr`
 	border-radius: 100px;
 `;
 
-function NavBar() {
+function NavSimple() {
 	return (
 		<NavBarStyle>
 			<BottomNavSection>
-				<IconDiv src={users} text='Community' />
-				<IconDiv src={gradcap} text='Skills' />
-				<IconDiv src={home} text='Home' />
-				<IconDiv src={faves} text='Favorites' />
-				<IconDiv src={more} text='More' />
+				<IconDiv src={back} />
+				<IconDiv column='4' src={share} />
+				<IconDiv column='5' src={heart} />
 
 				<Hr />
 			</BottomNavSection>
@@ -77,4 +73,4 @@ function NavBar() {
 	);
 }
 
-export default NavBar;
+export default NavSimple;
