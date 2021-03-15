@@ -3,10 +3,12 @@
 }
 
 body {
+	padding-top: 72px;
 	font-family: 'Poppins', sans-serif;
 	background-image: url('https://transparenttextures.com/patterns/food.png');
 	display: grid;
-	grid-template-rows: repeat(13, 88px);
+	grid-template-rows: repeat(8, 88px);
+	
 }
 
 .thumbnail-section-webkit-scrollbar {

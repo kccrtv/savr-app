@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import header from './components/assets/header.svg';
-import SearchBar from './components/SearchBar';
+
 import Hero from './components/Hero';
 import users from './components/assets/users-solid.svg';
 import gradcap from './components/assets/gradcap-solid.svg';
@@ -69,7 +69,7 @@ const ThumbContainer = styled.div`
 	display: flex;
 	overflow: hidden;
 	margin: 0 42px;
-	padding: 8px 0 16px 0;
+	padding: 2px 0 4px 0;
 `;
 
 const ThumbUnorderedList = styled.ul`
@@ -312,11 +312,3 @@ function Home({ meal }) {
 }
 
 export default Home;
-
-//put class name (webkit scrollbar in styled-component)
-
-// const url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&limitLicense=true&tags=dessert&number=1`;
-
-/**
- * <SearchBar placeholder='Search' buttonText='go' />
- */
