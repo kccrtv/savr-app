@@ -177,9 +177,10 @@ const RecipeSkillP = styled.p`
 	grid-column: 4 / 15;
 `;
 
-const ArrowRight = styled.img`
-	padding: 0 8px;
+const ArrowRight = styled.a`
+	padding: 8px;
 	display: ${(props) => props.display || 'inline'};
+	margin: 0 auto;
 `;
 
 function RecipeSkill(props) {
@@ -187,13 +188,16 @@ function RecipeSkill(props) {
 		<RecipeSkillContainer>
 			<RecipeSkillIconStyle src={gradcap} alt='skills' />
 			<RecipeSkillP>{props.text}</RecipeSkillP>
-			<ArrowRight src={next} alt='next' />
+
+			<ArrowRight href=''>
+				<img src={next} alt='next' />
+			</ArrowRight>
 		</RecipeSkillContainer>
 	);
 }
 
 const CheckListTable = styled.div`
-	display: inline-flex;
+	display: block;
 	flex-direction: row;
 `;
 
@@ -318,6 +322,8 @@ function NavSimple() {
 }
 /*********************************************************************************************************************************/
 function Recipe(props) {
+	const [card, getCard] = useState([]);
+
 	// const [meal, setMeal] = useState(null);
 
 	// function getMeal() {
@@ -350,7 +356,7 @@ function Recipe(props) {
 	/**Header: str
 	 *
 	 */
-	https: return (
+	return (
 		// <MainBody>
 		// 	<PhoneBody>
 		// 		<PhoneTop />
@@ -361,26 +367,26 @@ function Recipe(props) {
 					<RecipeHeader>
 						<HeroTextSpan>Title</HeroTextSpan>
 					</RecipeHeader>
-
-					<RecipeDetailDiv>
-						<RecipeHeaderDetailDiv text='20 min' textStrong='Prep Time' />
-						<RecipeHeaderDetailDiv text='20 min' textStrong='Cook Time' />
-					</RecipeDetailDiv>
-
-					<RecipeTabContainer>
-						<TabDiv className='inactive' href='' header='Recipe' />
-						<TabDiv className='active' href='' header='Cookware' />
-						<TabDiv className='inactive' href='' header='Ingredients' />
-					</RecipeTabContainer>
 				</div>
 
 				<section id='recipe-body'>
 					<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
-						Preparation
+						Visualize It
 					</RecipeHeaderDetailStyle>
 
-					<RecipeSkill text='Basic knife skills' />
-					<RecipeSkill text='Cornstarch slurry' />
+					<RecipeSkill text='Watch the video' />
+
+					<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
+						Ingredients
+					</RecipeHeaderDetailStyle>
+					<CheckListTable>
+						<CheckListTableUl>
+							<CheckListTableLi text='rice cooker'></CheckListTableLi>
+							<CheckListTableLi text='spatula'></CheckListTableLi>
+							<CheckListTableLi text='chefs knife'></CheckListTableLi>
+							<CheckListTableLi text='saute pan'></CheckListTableLi>
+						</CheckListTableUl>
+					</CheckListTable>
 
 					<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
 						Steps
@@ -390,16 +396,6 @@ function Recipe(props) {
 						text='Rinse uncooked rice a couple of times to remove starch. Place in
 								rice cooker and add water or chicken broth. Let cook.'
 					/>
-
-					<CheckListTable>
-						<CheckListTableUl>
-							<CheckListTableLi text='rice cooker'></CheckListTableLi>
-							<CheckListTableLi text='spatula'></CheckListTableLi>
-							<CheckListTableLi text='chefs knife'></CheckListTableLi>
-							<CheckListTableLi text='saute pan'></CheckListTableLi>
-						</CheckListTableUl>
-					</CheckListTable>
-					<PrimaryButton>Let's get cookin'</PrimaryButton>
 				</section>
 			</Content>
 			<NavBarStyle>
@@ -448,3 +444,17 @@ export default Recipe;
 // 					<Hr />
 // 				</BottomNavSection>
 // 			</NavBarStyle>
+
+/**NOT NEEDED FOR MEALDB
+ * <RecipeDetailDiv>
+						<RecipeHeaderDetailDiv text='20 min' textStrong='Prep Time' />
+						<RecipeHeaderDetailDiv text='20 min' textStrong='Cook Time' />
+					</RecipeDetailDiv>
+ * 
+ * <RecipeTabContainer>
+						<TabDiv className='inactive' href='' header='Recipe' />
+						<TabDiv className='active' href='' header='Cookware' />
+						<TabDiv className='inactive' href='' header='Ingredients' />
+					</RecipeTabContainer>
+<PrimaryButton>Let's get cookin'</PrimaryButton>
+ */

@@ -69,6 +69,7 @@ const ThumbContainer = styled.div`
 	display: flex;
 	overflow: hidden;
 	margin: 0 42px;
+	padding: 8px 0 16px 0;
 `;
 
 const ThumbUnorderedList = styled.ul`
@@ -100,10 +101,11 @@ function ThumbLink(props) {
 		// const thumbId = event.target.id;
 		// const thumbUrl = `https://www.themealdb.com/api/json/v2/${key}/lookup.php?i=`;
 		// const url = `${thumbUrl}${thumbId}`;
-		console.log(event.target.dataset);
+		// console.log(event.target);
+		console.log(props);
 	}
 	return (
-		<a onClick={handleClick} href={props.href}>
+		<Link to={'/recipe/' + props.id} onClick={handleClick} href={props.href}>
 			<ThumbItemStyle>
 				<ThumbImage
 					id={props.id}
@@ -112,7 +114,7 @@ function ThumbLink(props) {
 					alt='latest meal'
 				/>
 			</ThumbItemStyle>
-		</a>
+		</Link>
 	);
 }
 
@@ -239,15 +241,15 @@ function Home() {
 
 		// eslint-disable-next-line
 	}, []);
-	let thumbUrl = `https://www.themealdb.com/api/json/v2/${key}/lookup.php?i=`;
+	const thumbUrl = `https://www.themealdb.com/api/json/v2/${key}/lookup.php?i=`;
 
 	return (
 		<Fragment>
 			<Content>
-				<SearchBar placeholder='Search' buttonText='go' />
 				{hero ? (
 					<Hero
-						href=''
+						href={`${thumbUrl}${hero[0].idMeal}`}
+						id={hero[0].idMeal}
 						key={hero[0].idMeal}
 						src={hero[0].strMealThumb}
 						title={hero[0].strMeal}
@@ -260,6 +262,7 @@ function Home() {
 						{rowOne.map((meal) => (
 							<ThumbLink
 								href={`${thumbUrl}${meal.idMeal}`}
+								id={meal.idMeal}
 								key={meal.idMeal}
 								src={meal.strMealThumb}
 							/>
@@ -313,3 +316,7 @@ export default Home;
 //put class name (webkit scrollbar in styled-component)
 
 // const url = `https://api.spoonacular.com/recipes/random?apiKey=${key}&limitLicense=true&tags=dessert&number=1`;
+
+/**
+ * <SearchBar placeholder='Search' buttonText='go' />
+ */

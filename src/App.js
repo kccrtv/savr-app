@@ -184,6 +184,8 @@ function NavBar() {
 }
 
 function App() {
+	const [card, setCard] = useState();
+
 	// function getCard() {
 	// 	const mealOne = Object.values(meals[0]);
 
@@ -203,7 +205,32 @@ function App() {
 	// 	// console.log(mealOne[8]);
 	// }
 
-	// const [hero, setHero] = useState(null);
+	return (
+		<MainBody>
+			<PhoneBody>
+				<PhoneTop />
+				<Route path='/community' component={NavBarCommunity} />
+				<Route path='/skills' component={NavBarSkills} />
+				<Route path='/' exact component={Home} />
+				<Route path='/home' render={() => <Redirect to='/' />} />
+				<Route path='/favorites' component={NavBarFavorites} />
+				<Route path='/more' component={NavBarMore} />
+				<Route path='/results' component={Results} />
+				{/* <Route path='/recipe' component={Recipe} /> */}
+				<Route
+					path='/recipe/:id'
+					render={(routerProps) => (
+						<Recipe setCard={setCard} match={routerProps.match} card={card} />
+					)}
+				/>
+			</PhoneBody>
+		</MainBody>
+	);
+}
+
+export default App;
+
+/**	// const [hero, setHero] = useState(null);
 	// const [category, setCategory] = useState([]);
 	// const thumbsArr = [];
 	// const rowOne = category.slice(0, 4);
@@ -239,22 +266,10 @@ function App() {
 	// 	setCategory(thumbsArr);
 	// 	// eslint-disable-next-line
 	// }, []);
-	return (
-		<MainBody>
-			<PhoneBody>
-				<PhoneTop />
-				<Route path='/community' component={NavBarCommunity} />
-				<Route path='/skills' component={NavBarSkills} />
-				<Route path='/' exact component={Home} />
-				<Route path='/home' render={() => <Redirect to='/' />} />
-				<Route path='/favorites' component={NavBarFavorites} />
-				<Route path='/more' component={NavBarMore} />
-				<Route path='/results' component={Results} />
-				<Route path='/recipe' component={Recipe} />
-
-				{/* <Results /> */}
-				{/* <Recipe /> */}
-				{/* <NavBarStyle>
+ * 
+ * {/* <Results /> */
+/* <Recipe /> */
+/* <NavBarStyle>
 					<BottomNavSection>
 						<Link style={{ textDecoration: 'none' }} to='/community'>
 							<IconDiv src={users} text='Community' />
@@ -276,10 +291,4 @@ function App() {
 
 						<Hr />
 					</BottomNavSection>
-				</NavBarStyle> */}
-			</PhoneBody>
-		</MainBody>
-	);
-}
-
-export default App;
+				</NavBarStyle> */

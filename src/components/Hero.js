@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link, Route } from 'react-router-dom';
 
-const HeroFigure = styled.a`
+const HeroFigure = styled.div`
 	display: grid;
 	border-radius: 30px;
 	width: 318px;
@@ -38,13 +39,25 @@ const HeroTextSpan = styled.span`
 `;
 
 function Hero(props) {
+	function handleClick(event) {
+		event.preventDefault();
+		console.log(props);
+	}
+
 	return (
-		<HeroFigure href={props.href}>
-			<HeroImage key={props.key} src={props.src} alt='recipe hero image' />
-			<HeroText>
-				<HeroTextSpan>{props.title}</HeroTextSpan>
-			</HeroText>
-		</HeroFigure>
+		<Link to={'/recipe/' + props.id} onClick={handleClick} href={props.href}>
+			<HeroFigure>
+				<HeroImage
+					id={props.id}
+					key={props.key}
+					src={props.src}
+					alt='recipe hero image'
+				/>
+				<HeroText>
+					<HeroTextSpan>{props.title}</HeroTextSpan>
+				</HeroText>
+			</HeroFigure>
+		</Link>
 	);
 }
 
