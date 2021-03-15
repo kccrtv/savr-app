@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import Hero from './components/Hero';
 import header from './components/assets/header.svg';
 import next from './components/assets/arrow-next-solid.svg';
 import gradcap from './components/assets/graduation-cap-small.svg';
-import NavSimple from './components/NavSimple';
+import back from './components/assets/prev.svg';
+import share from './components/assets/share-regular.svg';
+import heart from './components/assets/heart-regular.svg';
 
 const MainBody = styled.main`
 	display: grid;
@@ -39,9 +41,10 @@ function PhoneTop(props) {
 }
 
 const Content = styled.div`
-	height: 560px;
+	height: 528px;
 	width: 396x;
 	overflow-y: scroll;
+	grid-row: 5;
 `;
 
 const HeroTextSpan = styled.span`
@@ -235,68 +238,172 @@ const PrimaryButton = styled.button`
 	border: none;
 	width: 374px;
 	height: 3rem;
-	grid-row: 8;
 	z-index: 2;
-	margin: 0 auto;
 	font-size: 1.5rem;
+	position: relative;
+	bottom: 0px;
 `;
+
+const NavBarStyle = styled.nav`
+	border-radius: 0 0 30px;
+	grid-row: 31 / span 4;
+	width: 414px;
+	margin: 0 auto;
+	padding: 0;
+`;
+
+const BottomNavSection = styled.section`
+	background-color: #f6f7f8;
+	display: grid;
+	justify-content: center;
+	grid-template-columns: ${(props) => props.columns || 'repeat(5, 8ch)'};
+	border-radius: 0 0 30px 30px;
+	height: 104px;
+`;
+
+const IconDivStyle = styled.div`
+	text-align: center;
+	margin-bottom: 0px;
+	background-color: #f6f7f8;
+	display: ${(props) => props.display || 'block'};
+	grid-column: ${(props) => props.column};
+	grid-row: ${(props) => props.row};
+`;
+
+function Icon(props) {
+	return <input type='image' src={props.src} alt='icon' />;
+}
+
+const NavIconText = styled.p`
+	font-weight: 500;
+	font-size: 0.8rem;
+	margin: 0 auto;
+	background-color: #f6f7f8;
+	color: #555556;
+`;
+
+function IconDiv(props) {
+	return (
+		<IconDivStyle row={props.row} column={props.column}>
+			<Icon src={props.src} />
+			<NavIconText>{props.text}</NavIconText>
+		</IconDivStyle>
+	);
+}
+
+const Hr = styled.hr`
+	grid-row: 33;
+	grid-column: 2 / span 3;
+	width: 55%;
+	background-color: black;
+	height: 7px;
+	border-radius: 100px;
+`;
+
+function NavSimple() {
+	return (
+		<NavBarStyle>
+			<BottomNavSection>
+				<IconDiv src={back} />
+				<IconDiv column='4' src={share} />
+				<IconDiv column='5' src={heart} />
+
+				<Hr />
+			</BottomNavSection>
+		</NavBarStyle>
+	);
+}
 
 function Recipe(props) {
 	return (
-		<MainBody>
-			<PhoneBody>
-				<PhoneTop />
-				<Content>
-					<Hero />
-					<div>
-						<RecipeHeader>
-							<HeroTextSpan>Recipe Card Title</HeroTextSpan>
-						</RecipeHeader>
+		// <MainBody>
+		// 	<PhoneBody>
+		// 		<PhoneTop />
+		<Fragment>
+			<Content>
+				<Hero />
+				<div>
+					<RecipeHeader>
+						<HeroTextSpan>Recipe Card Title</HeroTextSpan>
+					</RecipeHeader>
 
-						<RecipeDetailDiv>
-							<RecipeHeaderDetailDiv text='20 min' textStrong='Prep Time' />
-							<RecipeHeaderDetailDiv text='20 min' textStrong='Cook Time' />
-						</RecipeDetailDiv>
+					<RecipeDetailDiv>
+						<RecipeHeaderDetailDiv text='20 min' textStrong='Prep Time' />
+						<RecipeHeaderDetailDiv text='20 min' textStrong='Cook Time' />
+					</RecipeDetailDiv>
 
-						<RecipeTabContainer>
-							<TabDiv className='inactive' href='' header='Recipe' />
-							<TabDiv className='active' href='' header='Cookware' />
-							<TabDiv className='inactive' href='' header='Ingredients' />
-						</RecipeTabContainer>
-					</div>
+					<RecipeTabContainer>
+						<TabDiv className='inactive' href='' header='Recipe' />
+						<TabDiv className='active' href='' header='Cookware' />
+						<TabDiv className='inactive' href='' header='Ingredients' />
+					</RecipeTabContainer>
+				</div>
 
-					<section id='recipe-body'>
-						<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
-							Preparation
-						</RecipeHeaderDetailStyle>
+				<section id='recipe-body'>
+					<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
+						Preparation
+					</RecipeHeaderDetailStyle>
 
-						<RecipeSkill text='Basic knife skills' />
-						<RecipeSkill text='Cornstarch slurry' />
+					<RecipeSkill text='Basic knife skills' />
+					<RecipeSkill text='Cornstarch slurry' />
 
-						<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
-							Steps
-						</RecipeHeaderDetailStyle>
-						<RecipeStep
-							header='1'
-							text='Rinse uncooked rice a couple of times to remove starch. Place in
+					<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
+						Steps
+					</RecipeHeaderDetailStyle>
+					<RecipeStep
+						header='1'
+						text='Rinse uncooked rice a couple of times to remove starch. Place in
 								rice cooker and add water or chicken broth. Let cook.'
-						/>
+					/>
 
-						<CheckListTable>
-							<CheckListTableUl>
-								<CheckListTableLi text='rice cooker'></CheckListTableLi>
-								<CheckListTableLi text='spatula'></CheckListTableLi>
-								<CheckListTableLi text='chefs knife'></CheckListTableLi>
-								<CheckListTableLi text='saute pan'></CheckListTableLi>
-							</CheckListTableUl>
-						</CheckListTable>
-					</section>
-				</Content>
-				<PrimaryButton>Let's get cookin'</PrimaryButton>
-			</PhoneBody>
-			<NavSimple />
-		</MainBody>
+					<CheckListTable>
+						<CheckListTableUl>
+							<CheckListTableLi text='rice cooker'></CheckListTableLi>
+							<CheckListTableLi text='spatula'></CheckListTableLi>
+							<CheckListTableLi text='chefs knife'></CheckListTableLi>
+							<CheckListTableLi text='saute pan'></CheckListTableLi>
+						</CheckListTableUl>
+					</CheckListTable>
+					<PrimaryButton>Let's get cookin'</PrimaryButton>
+				</section>
+			</Content>
+			<NavBarStyle>
+				<BottomNavSection>
+					<IconDiv src={back} />
+					<IconDiv column='4' src={share} />
+					<IconDiv column='5' src={heart} />
+
+					<Hr />
+				</BottomNavSection>
+			</NavBarStyle>
+		</Fragment>
+		// </PhoneBody>
+		// </MainBody>
 	);
 }
 
 export default Recipe;
+
+// <NavBarStyle>
+// 				<BottomNavSection>
+// 					<Link style={{ textDecoration: 'none' }} to='/community'>
+// 						<IconDiv src={users} text='Community' />
+// 					</Link>
+// 					<Link style={{ textDecoration: 'none' }} to='/skills'>
+// 						<IconDiv src={gradcap} text='Skills' />
+// 					</Link>
+
+// 					<Link style={{ textDecoration: 'none' }} to='/'>
+// 						<IconDiv src={home} text='Home' />
+// 					</Link>
+
+// 					<Link style={{ textDecoration: 'none' }} to='/favorites'>
+// 						<IconDiv src={faves} text='Favorites' />
+// 					</Link>
+// 					<Link style={{ textDecoration: 'none' }} to='/more'>
+// 						<IconDiv src={more} text='More' />
+// 					</Link>
+
+// 					<Hr />
+// 				</BottomNavSection>
+// 			</NavBarStyle>

@@ -4,7 +4,15 @@ import back from './assets/prev.svg';
 import share from './assets/share-regular.svg';
 import heart from './assets/heart-regular.svg';
 
-const NavBarStyle = styled.div`
+// const NavBarStyle = styled.div`
+// 	border-radius: 0 0 30px;
+// 	grid-row: 31 / span 4;
+// 	width: 414px;
+// 	margin: 0 auto;
+// 	padding: 0;
+// `;
+
+const NavBarStyle = styled.nav`
 	border-radius: 0 0 30px;
 	grid-row: 31 / span 4;
 	width: 414px;
@@ -39,6 +47,7 @@ const NavIconText = styled.p`
 	font-size: 0.8rem;
 	margin: 0 auto;
 	background-color: #f6f7f8;
+	color: #555556;
 `;
 
 function IconDiv(props) {

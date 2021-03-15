@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Home from './Home';
+import Results from './Results';
+import Recipe from './Recipe';
+
 import users from './components/assets/users-solid.svg';
 import gradcap from './components/assets/gradcap-solid.svg';
 import home from './components/assets/home-solid.svg';
@@ -8,13 +11,13 @@ import faves from './components/assets/fire-wave-solid.svg';
 import more from './components/assets/ellipses-solid.svg';
 import NavBarCommunity from './components/NavBarCommunity';
 import NavBarSkills from './components/NavBarSkills';
-import NavBarHome from './components/NavBarHome';
+
 import NavBarFavorites from './components/NavBarFavorites';
 import NavBarMore from './components/NavBarMore';
 import header from './components/assets/header.svg';
 import SearchBar from './components/SearchBar';
 import Hero from './components/Hero';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Redirect } from 'react-router-dom';
 
 const key = process.env.REACT_APP_API_KEY;
 
@@ -32,7 +35,7 @@ const PhoneBody = styled.section`
 	box-shadow: 0 0 23px 0 #aaaaaa;
 	border-radius: 30px;
 	display: grid;
-	grid-template-rows: repeat(10, 80px);
+	grid-template-rows: repeat(13, 8px 40px);
 `;
 
 const FrameTop = styled.div`
@@ -55,6 +58,7 @@ const Content = styled.div`
 	height: 560px;
 	width: 396x;
 	overflow-y: scroll;
+	grid-row: 5;
 `;
 
 const ThumbHeader = styled.h4`
@@ -140,6 +144,7 @@ const NavIconText = styled.p`
 	font-size: 0.8rem;
 	margin: 0 auto;
 	background-color: #f6f7f8;
+	color: #555556;
 `;
 
 function IconDiv(props) {
@@ -219,64 +224,41 @@ function App() {
 		<MainBody>
 			<PhoneBody>
 				<PhoneTop />
-				<Content>
-					<SearchBar placeholder='Search' buttonText='go' />
-					{hero ? (
-						<Hero
-							href=''
-							key={hero[0].idMeal}
-							src={hero[0].strMealThumb}
-							title={hero[0].strMeal}
-						/>
-					) : null}
+				<Route path='/community' component={NavBarCommunity} />
+				<Route path='/skills' component={NavBarSkills} />
+				<Route path='/' exact component={Home} />
+				<Route path='/home' render={() => <Redirect to='/' />} />
+				<Route path='/favorites' component={NavBarFavorites} />
+				<Route path='/more' component={NavBarMore} />
+				<Route path='/results' component={Results} />
+				<Route path='/recipe' component={Recipe} />
 
-					<ThumbHeader>Exotic Eats</ThumbHeader>
-					<ThumbContainer>
-						<ThumbUnorderedList>
-							{rowOne.map((meal) => (
-								<ThumbLink href='' key={meal.idMeal} src={meal.strMealThumb} />
-							))}
-						</ThumbUnorderedList>
-					</ThumbContainer>
+				{/* <Results /> */}
+				{/* <Recipe /> */}
+				{/* <NavBarStyle>
+					<BottomNavSection>
+						<Link style={{ textDecoration: 'none' }} to='/community'>
+							<IconDiv src={users} text='Community' />
+						</Link>
+						<Link style={{ textDecoration: 'none' }} to='/skills'>
+							<IconDiv src={gradcap} text='Skills' />
+						</Link>
 
-					<ThumbHeader>Fresh Finds</ThumbHeader>
-					<ThumbContainer>
-						<ThumbUnorderedList>
-							{rowTwo.map((meal) => (
-								<ThumbLink href='' key={meal.idMeal} src={meal.strMealThumb} />
-							))}
-						</ThumbUnorderedList>
-					</ThumbContainer>
-				</Content>
+						<Link style={{ textDecoration: 'none' }} to='/'>
+							<IconDiv src={home} text='Home' />
+						</Link>
+
+						<Link style={{ textDecoration: 'none' }} to='/favorites'>
+							<IconDiv src={faves} text='Favorites' />
+						</Link>
+						<Link style={{ textDecoration: 'none' }} to='/more'>
+							<IconDiv src={more} text='More' />
+						</Link>
+
+						<Hr />
+					</BottomNavSection>
+				</NavBarStyle> */}
 			</PhoneBody>
-			<NavBarStyle>
-				<BottomNavSection>
-					<Link to='/community'>
-						<IconDiv src={users} text='Community' />
-					</Link>
-					<Link to='/skills'>
-						<IconDiv src={gradcap} text='Skills' />
-					</Link>
-
-					<Link to='/'>
-						<IconDiv src={home} text='Home' />
-					</Link>
-
-					<Link to='/favorites'>
-						<IconDiv src={faves} text='Favorites' />
-					</Link>
-					<Link to='/more'>
-						<IconDiv src={more} text='More' />
-					</Link>
-					<Route path='/community' component={NavBarCommunity} />
-					<Route path='/skills' component={NavBarSkills} />
-					<Route path='/' exact component={Home} />
-					<Route path='/favorites' component={NavBarFavorites} />
-					<Route path='/more' component={NavBarMore} />
-
-					<Hr />
-				</BottomNavSection>
-			</NavBarStyle>
 		</MainBody>
 	);
 }

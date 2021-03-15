@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import back from './assets/prev.svg';
+import { Link } from 'react-router-dom';
 
 const NavBarStyle = styled.div`
 	border-radius: 0 0 30px;
@@ -61,7 +62,9 @@ function NavBack() {
 	return (
 		<NavBarStyle>
 			<BottomNavSection>
-				<IconDiv src={back} />
+				<Link to='/'>
+					<IconDiv src={back} />
+				</Link>
 				<Hr />
 			</BottomNavSection>
 		</NavBarStyle>

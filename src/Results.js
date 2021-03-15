@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import search from './components/assets/search.svg';
-import NavBack from './components/NavBack';
+// import NavBack from './components/NavBack';
+import Home from './Home';
 import header from './components/assets/header.svg';
 import arrowright from './components/assets/arrow-next-solid.svg';
-
+import back from './components/assets/prev.svg';
+import { Link, Route, Redirect } from 'react-router-dom';
 // const key = process.env.REACT_APP_API_KEY;
 
 // STYLED COMPONENTS
@@ -41,9 +43,10 @@ function PhoneTop(props) {
 }
 
 const Content = styled.div`
-	height: 560px;
+	height: 528px;
 	width: 396x;
 	overflow-y: scroll;
+	grid-row: 5;
 `;
 
 const ThumbHeader = styled.h4`
@@ -195,53 +198,132 @@ function ResultRow(props) {
 	);
 }
 
+const NavBarStyle = styled.div`
+	border-radius: 0 0 30px;
+	grid-row: 31 / span 4;
+	width: 414px;
+	margin: 0 auto;
+	padding: 0;
+`;
+
+const BottomNavSection = styled.section`
+	background-color: #f6f7f8;
+	display: grid;
+	justify-content: center;
+	grid-template-columns: ${(props) => props.columns || 'repeat(5, 8ch)'};
+	border-radius: 0 0 30px 30px;
+	height: 104px;
+`;
+
+const IconDivStyle = styled.div`
+	text-align: center;
+	margin-bottom: 0px;
+	background-color: #f6f7f8;
+	display: ${(props) => props.display || 'block'};
+	grid-column: ${(props) => props.column};
+	grid-row: ${(props) => props.row};
+`;
+
+function Icon(props) {
+	return <input type='image' src={props.src} alt='icon' />;
+}
+
+const NavIconText = styled.p`
+	font-weight: 500;
+	font-size: 0.8rem;
+	margin: 0 auto;
+	background-color: #f6f7f8;
+`;
+
+function IconDiv(props) {
+	return (
+		<IconDivStyle row={props.row} column={props.column}>
+			<Icon src={props.src} />
+			<NavIconText>{props.text}</NavIconText>
+		</IconDivStyle>
+	);
+}
+
+const Hr = styled.hr`
+	grid-row: 33;
+	grid-column: 2 / span 3;
+	width: 55%;
+	background-color: black;
+	height: 7px;
+	border-radius: 100px;
+`;
+
+// function NavBack() {
+// 	return (
+// 		<NavBarStyle>
+// 			<BottomNavSection>
+// 				<Link to='/'>
+// 					<IconDiv src={back} />
+// 				</Link>
+// 				<Hr />
+// 			</BottomNavSection>
+// 		</NavBarStyle>
+// 	);
+// }
+
 function Results(props) {
 	return (
-		<MainBody>
-			<PhoneBody>
-				<PhoneTop />
-				<Content>
-					{/* <SearchBar placeholder='Search' buttonText='go' /> */}
-					<SearchBarDiv />
-					<SearchResultsHeader text='Meals Found' />
-					<ThumbUnorderedList direction='column'>
-						<ResultRow
-							title='Jelly-o topping jujubes'
-							text='Cake marshmallow dragée cake pudding tart cotton candy topping cheesecake. Tootsie roll jelly beans gummi bears pudding carrot cake tiramisu chocolate. Jelly-o topping jujubes. Gummi bears muffin bear claw pie lemon drops jujubes icing.'
-						/>
-						<ResultRow
-							title='Pie candy cotton candy'
-							text='Tootsie roll dessert cake chocolate toffee cookie pie. Jelly beans sugar plum cookie muffin halvah. Pie candy cotton candy cheesecake. Marzipan toffee liquorice jelly-o powder jelly muffin.'
-						/>
-						<ResultRow
-							title='Biscuit apple pie'
-							text='Fruitcake oat cake biscuit macaroon pastry chocolate cake candy. Gummi bears apple pie ice cream tootsie roll cotton candy. Biscuit apple pie lemon drops cupcake bear claw. Muffin topping cupcake cookie sugar plum chocolate cake.'
-						/>
-						<ResultRow
-							title='Chocolate bar donut bear claw'
-							text='Jelly-o dragée croissant biscuit cookie sweet chupa chups candy canes. Chocolate cake powder jelly chocolate pastry cotton candy sweet chocolate bar chupa chups. Chocolate bar donut bear claw pudding lollipop liquorice gummies tootsie roll. Carrot cake muffin cotton candy sesame snaps ice cream marshmallow icing tootsie roll.'
-						/>
-						<ResultRow
-							title='Chocolate bar donut bear claw'
-							text='Jelly-o dragée croissant biscuit cookie sweet chupa chups candy canes. Chocolate cake powder jelly chocolate pastry cotton candy sweet chocolate bar chupa chups. Chocolate bar donut bear claw pudding lollipop liquorice gummies tootsie roll. Carrot cake muffin cotton candy sesame snaps ice cream marshmallow icing tootsie roll.'
-						/>
-						<ResultRow
-							title='Biscuit chupa chups'
-							text='Lemon drops cupcake biscuit brownie soufflé brownie. Cookie donut donut apple pie marzipan bonbon chocolate cake liquorice dessert. Biscuit chupa chups tart jelly beans candy canes powder.'
-						/>
-						<ResultRow
-							title='Jelly-o topping jujubes'
-							text='Cake marshmallow dragée cake pudding tart cotton candy topping cheesecake. Tootsie roll jelly beans gummi bears pudding carrot cake tiramisu chocolate. Jelly-o topping jujubes. Gummi bears muffin bear claw pie lemon drops jujubes icing.'
-						/>
-						<ResultRow
-							title='Jelly-o topping jujubes'
-							text='Cake marshmallow dragée cake pudding tart cotton candy topping cheesecake. Tootsie roll jelly beans gummi bears pudding carrot cake tiramisu chocolate. Jelly-o topping jujubes. Gummi bears muffin bear claw pie lemon drops jujubes icing.'
-						/>
-					</ThumbUnorderedList>
-				</Content>
-			</PhoneBody>
+		// <MainBody>
+		// 	<PhoneBody>
+		// 		<PhoneTop />
+		<Fragment>
+			<Content>
+				{/* <SearchBar placeholder='Search' buttonText='go' /> */}
+				<SearchBarDiv />
+				<SearchResultsHeader text='Meals Found' />
+				<ThumbUnorderedList direction='column'>
+					<ResultRow
+						title='Jelly-o topping jujubes'
+						text='Cake marshmallow dragée cake pudding tart cotton candy topping cheesecake. Tootsie roll jelly beans gummi bears pudding carrot cake tiramisu chocolate. Jelly-o topping jujubes. Gummi bears muffin bear claw pie lemon drops jujubes icing.'
+					/>
+					<ResultRow
+						title='Pie candy cotton candy'
+						text='Tootsie roll dessert cake chocolate toffee cookie pie. Jelly beans sugar plum cookie muffin halvah. Pie candy cotton candy cheesecake. Marzipan toffee liquorice jelly-o powder jelly muffin.'
+					/>
+					<ResultRow
+						title='Biscuit apple pie'
+						text='Fruitcake oat cake biscuit macaroon pastry chocolate cake candy. Gummi bears apple pie ice cream tootsie roll cotton candy. Biscuit apple pie lemon drops cupcake bear claw. Muffin topping cupcake cookie sugar plum chocolate cake.'
+					/>
+					<ResultRow
+						title='Chocolate bar donut bear claw'
+						text='Jelly-o dragée croissant biscuit cookie sweet chupa chups candy canes. Chocolate cake powder jelly chocolate pastry cotton candy sweet chocolate bar chupa chups. Chocolate bar donut bear claw pudding lollipop liquorice gummies tootsie roll. Carrot cake muffin cotton candy sesame snaps ice cream marshmallow icing tootsie roll.'
+					/>
+					<ResultRow
+						title='Chocolate bar donut bear claw'
+						text='Jelly-o dragée croissant biscuit cookie sweet chupa chups candy canes. Chocolate cake powder jelly chocolate pastry cotton candy sweet chocolate bar chupa chups. Chocolate bar donut bear claw pudding lollipop liquorice gummies tootsie roll. Carrot cake muffin cotton candy sesame snaps ice cream marshmallow icing tootsie roll.'
+					/>
+					<ResultRow
+						title='Biscuit chupa chups'
+						text='Lemon drops cupcake biscuit brownie soufflé brownie. Cookie donut donut apple pie marzipan bonbon chocolate cake liquorice dessert. Biscuit chupa chups tart jelly beans candy canes powder.'
+					/>
+					<ResultRow
+						title='Jelly-o topping jujubes'
+						text='Cake marshmallow dragée cake pudding tart cotton candy topping cheesecake. Tootsie roll jelly beans gummi bears pudding carrot cake tiramisu chocolate. Jelly-o topping jujubes. Gummi bears muffin bear claw pie lemon drops jujubes icing.'
+					/>
+					<ResultRow
+						title='Jelly-o topping jujubes'
+						text='Cake marshmallow dragée cake pudding tart cotton candy topping cheesecake. Tootsie roll jelly beans gummi bears pudding carrot cake tiramisu chocolate. Jelly-o topping jujubes. Gummi bears muffin bear claw pie lemon drops jujubes icing.'
+					/>
+				</ThumbUnorderedList>
+			</Content>
+			<NavBarStyle>
+				<BottomNavSection>
+					<Link to='/home'>
+						<IconDiv src={back} />
+					</Link>
+					<Route path='/home' component={Home} />
+					<Hr />
+				</BottomNavSection>
+			</NavBarStyle>
+		</Fragment>
+		/* </PhoneBody>
 			<NavBack />
-		</MainBody>
+		</MainBody> */
 	);
 }
 
