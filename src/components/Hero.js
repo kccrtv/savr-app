@@ -40,8 +40,8 @@ const HeroTextSpan = styled.span`
 
 function Hero(props) {
 	function handleClick(event) {
-		event.preventDefault();
-		console.log(props);
+		// event.preventDefault();
+		// console.log(props);
 	}
 
 	return (

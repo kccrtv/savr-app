@@ -97,12 +97,12 @@ const ThumbItemStyle = styled.li`
 
 function ThumbLink(props) {
 	function handleClick(event) {
-		event.preventDefault();
+		// event.preventDefault();
 		// const thumbId = event.target.id;
 		// const thumbUrl = `https://www.themealdb.com/api/json/v2/${key}/lookup.php?i=`;
 		// const url = `${thumbUrl}${thumbId}`;
 		// console.log(event.target);
-		console.log(props);
+		// console.log(props);
 	}
 	return (
 		<Link to={'/recipe/' + props.id} onClick={handleClick} href={props.href}>
@@ -192,7 +192,7 @@ function NavBar() {
 	);
 }
 /*********************************************************************************************************************************/
-function Home() {
+function Home({ meal }) {
 	const [hero, setHero] = useState(null);
 	const [category, setCategory] = useState([]);
 	const [thumbData, setThumbData] = useState(null);

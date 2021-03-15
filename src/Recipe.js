@@ -189,7 +189,7 @@ function RecipeSkill(props) {
 			<RecipeSkillIconStyle src={gradcap} alt='skills' />
 			<RecipeSkillP>{props.text}</RecipeSkillP>
 
-			<ArrowRight href=''>
+			<ArrowRight href={props.href} target='_blank'>
 				<img src={next} alt='next' />
 			</ArrowRight>
 		</RecipeSkillContainer>
@@ -321,8 +321,87 @@ function NavSimple() {
 	);
 }
 /*********************************************************************************************************************************/
-function Recipe(props) {
-	const [card, getCard] = useState([]);
+const apiUrl = `https://www.themealdb.com/api/json/v2/${key}/lookup.php?i=`;
+function Recipe({ match }) {
+	const [card, setCard] = useState();
+	const [mealIngreds, setMealIngreds] = useState();
+	const mealId = match.params.id;
+	let url = `${apiUrl}${mealId}`;
+
+	function getCard() {
+		fetch(url)
+			.then((res) => res.json())
+			.then((res) => {
+				let newCard = res.meals;
+				setCard(newCard);
+				console.log(card[0]);
+				let mealOne = Object.values(card[0]);
+				const ingredients = mealOne.slice(9, 29);
+				const measurements = mealOne.slice(29, 49);
+				let reducedArr = measurements.reduce((acc, curr, index) => {
+					return [...acc, `${curr} ${ingredients[index]}`];
+				}, []);
+				// console.log('reducedArr', reducedArr);
+				const ingredsArr = reducedArr.filter((str) => str.length > 2);
+				// console.log('ingredsarr', ingredsArr);
+				setMealIngreds(ingredsArr);
+			})
+			.catch((err) => console.log(err));
+		// console.log('card', card);
+	}
+
+	function getIngredients() {
+		fetch(url)
+			.then((res) => res.json())
+			.then((res) => {
+				let mealOne = res.meals[0];
+				mealOne = Object.values(card[0]);
+				const ingredients = mealOne.slice(9, 29);
+				const measurements = mealOne.slice(29, 49);
+				let reducedArr = measurements.reduce((acc, curr, index) => {
+					return [...acc, `${curr} ${ingredients[index]}`];
+				}, []);
+				// console.log('reducedArr', reducedArr);
+				const ingredsArr = reducedArr.filter((str) => str.length > 2);
+				// console.log('ingredsarr', ingredsArr);
+				setMealIngreds(ingredsArr);
+				console.log(mealIngreds);
+			})
+			.catch((err) => console.log(err));
+	}
+
+	// setMealIngreds(ingredsArr);
+
+	useEffect(() => {
+		getCard(card);
+		// getIngredients(card);
+		console.log(mealIngreds);
+		// eslint-disable-next-line
+	}, []);
+
+	// let newCard = card[0];
+	// setCard(newCard);
+	// const mealOne = Object.values(card[0]);
+	// const ingredients = mealOne.slice(9, 29);
+	// const measurements = mealOne.slice(29, 49);
+	// const ingredsArr = measurements.reduce((acc, curr, index) => {
+	// 	return [...acc, `${curr} ${ingredients[index]}`];
+	// }, []);
+	// console.log('ingredsArr', ingredsArr);
+	// // setMealIngreds(ingredsArr);
+	// console.log(mealIngreds);
+	// console.log('ingredients', ingredients);
+	// function getCard() {
+	// const meal = Object.values(card[0]);
+	// console.log('meal', meal);
+	// const ingredients = meal.slice(9, 29);
+	// const measurements = meal.slice(29, 49);
+	// let ingredsArr = measurements.reduce((acc, curr, index) => {
+	// 	return [...acc, `${curr} ${ingredients[index]}`];
+	// }, []);
+	// console.log('ingredsarr', ingredsArr);
+	// }
+	// console.log('ingredsarr2', ingredsArr);
 
 	// const [meal, setMeal] = useState(null);
 
@@ -361,43 +440,50 @@ function Recipe(props) {
 		// 	<PhoneBody>
 		// 		<PhoneTop />
 		<Fragment>
-			<Content>
-				<Hero />
-				<div>
-					<RecipeHeader>
-						<HeroTextSpan>Title</HeroTextSpan>
-					</RecipeHeader>
-				</div>
-
-				<section id='recipe-body'>
-					<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
-						Visualize It
-					</RecipeHeaderDetailStyle>
-
-					<RecipeSkill text='Watch the video' />
-
-					<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
-						Ingredients
-					</RecipeHeaderDetailStyle>
-					<CheckListTable>
-						<CheckListTableUl>
-							<CheckListTableLi text='rice cooker'></CheckListTableLi>
-							<CheckListTableLi text='spatula'></CheckListTableLi>
-							<CheckListTableLi text='chefs knife'></CheckListTableLi>
-							<CheckListTableLi text='saute pan'></CheckListTableLi>
-						</CheckListTableUl>
-					</CheckListTable>
-
-					<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
-						Steps
-					</RecipeHeaderDetailStyle>
-					<RecipeStep
-						header='1'
-						text='Rinse uncooked rice a couple of times to remove starch. Place in
-								rice cooker and add water or chicken broth. Let cook.'
+			{card ? (
+				<Content>
+					<Hero
+						id={card[0].idMeal}
+						key={card[0].idMeal}
+						src={card[0].strMealThumb}
 					/>
-				</section>
-			</Content>
+					<div>
+						<RecipeHeader>
+							<HeroTextSpan>{card[0].strMeal}</HeroTextSpan>
+						</RecipeHeader>
+					</div>
+
+					<section id='recipe-body'>
+						{card[0].strYoutube ? (
+							<Fragment>
+								<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
+									Visualize It
+								</RecipeHeaderDetailStyle>
+
+								<RecipeSkill href={card[0].strYoutube} text='Watch the video' />
+							</Fragment>
+						) : null}
+
+						<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
+							Ingredients
+						</RecipeHeaderDetailStyle>
+						<CheckListTable>
+							<CheckListTableUl>
+								{mealIngreds
+									? mealIngreds.map((ingredient) => (
+											<CheckListTableLi text={ingredient} />
+									  ))
+									: null}
+							</CheckListTableUl>
+						</CheckListTable>
+
+						<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
+							Steps
+						</RecipeHeaderDetailStyle>
+						<RecipeStep header='1' text={card[0].strInstructions} />
+					</section>
+				</Content>
+			) : null}
 			<NavBarStyle>
 				<BottomNavSection>
 					<Link to='/'>
@@ -457,4 +543,12 @@ export default Recipe;
 						<TabDiv className='inactive' href='' header='Ingredients' />
 					</RecipeTabContainer>
 <PrimaryButton>Let's get cookin'</PrimaryButton>
+
+<CheckListTableLi
+									text={`${card.strMeasure1} ${card[0].strIngredient1}`}></CheckListTableLi>
+								<CheckListTableLi
+									text={`${card[0].strMeasure20} ${card[0].strIngredient20}`}></CheckListTableLi>
+								<CheckListTableLi text='chefs knife'></CheckListTableLi>
+								<CheckListTableLi text='saute pan'></CheckListTableLi>
+
  */

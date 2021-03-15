@@ -216,13 +216,14 @@ function App() {
 				<Route path='/favorites' component={NavBarFavorites} />
 				<Route path='/more' component={NavBarMore} />
 				<Route path='/results' component={Results} />
-				{/* <Route path='/recipe' component={Recipe} /> */}
-				<Route
+				<Route path='/recipe/:id' component={Recipe} />
+
+				{/* <Route
 					path='/recipe/:id'
 					render={(routerProps) => (
 						<Recipe setCard={setCard} match={routerProps.match} card={card} />
 					)}
-				/>
+				/> */}
 			</PhoneBody>
 		</MainBody>
 	);
