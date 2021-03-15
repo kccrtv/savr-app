@@ -184,42 +184,42 @@ function NavBar() {
 }
 
 function App() {
-	const [hero, setHero] = useState(null);
-	const [category, setCategory] = useState([]);
-	const thumbsArr = [];
-	const rowOne = category.slice(0, 4);
-	const rowTwo = category.slice(5, 9);
+	// const [hero, setHero] = useState(null);
+	// const [category, setCategory] = useState([]);
+	// const thumbsArr = [];
+	// const rowOne = category.slice(0, 4);
+	// const rowTwo = category.slice(5, 9);
 
-	function getHero() {
-		const heroUrl = `https://www.themealdb.com/api/json/v2/${key}/random.php`;
-		return fetch(heroUrl)
-			.then((res) => res.json())
-			.then((res) => {
-				let newHero = res.meals;
-				setHero(newHero);
-			})
-			.catch((err) => console.log(err));
-	}
+	// function getHero() {
+	// 	const heroUrl = `https://www.themealdb.com/api/json/v2/${key}/random.php`;
+	// 	return fetch(heroUrl)
+	// 		.then((res) => res.json())
+	// 		.then((res) => {
+	// 			let newHero = res.meals;
+	// 			setHero(newHero);
+	// 		})
+	// 		.catch((err) => console.log(err));
+	// }
 
-	function getCategory() {
-		const categoryUrl = `https://www.themealdb.com/api/json/v2/${key}/randomselection.php`;
+	// function getCategory() {
+	// 	const categoryUrl = `https://www.themealdb.com/api/json/v2/${key}/randomselection.php`;
 
-		return fetch(categoryUrl)
-			.then((res) => res.json())
-			.then((res) => {
-				let latest = res.meals;
-				setCategory(latest);
-				category.forEach((meal) => thumbsArr.push(meal));
-			})
-			.catch((err) => console.log(err));
-	}
+	// 	return fetch(categoryUrl)
+	// 		.then((res) => res.json())
+	// 		.then((res) => {
+	// 			let latest = res.meals;
+	// 			setCategory(latest);
+	// 			category.forEach((meal) => thumbsArr.push(meal));
+	// 		})
+	// 		.catch((err) => console.log(err));
+	// }
 
-	useEffect(() => {
-		getHero(hero);
-		getCategory(category);
-		setCategory(thumbsArr);
-		// eslint-disable-next-line
-	}, []);
+	// useEffect(() => {
+	// 	getHero(hero);
+	// 	getCategory(category);
+	// 	setCategory(thumbsArr);
+	// 	// eslint-disable-next-line
+	// }, []);
 	return (
 		<MainBody>
 			<PhoneBody>

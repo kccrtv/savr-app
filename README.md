@@ -12,3 +12,4 @@ https://www.w3docs.com/snippets/css/how-to-set-the-size-of-a-checkbox-with-html-
 https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook
 
 figma ui
+https://stackoverflow.com/questions/38824349/how-to-convert-an-object-to-an-array-of-key-value-pairs-in-javascript

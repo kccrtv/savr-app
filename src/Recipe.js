@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Hero from './components/Hero';
 import header from './components/assets/header.svg';
@@ -7,6 +7,9 @@ import gradcap from './components/assets/graduation-cap-small.svg';
 import back from './components/assets/prev.svg';
 import share from './components/assets/share-regular.svg';
 import heart from './components/assets/heart-regular.svg';
+import { Link, Route, Redirect } from 'react-router-dom';
+import mealData from './components/data.json';
+const key = process.env.REACT_APP_API_KEY;
 
 const MainBody = styled.main`
 	display: grid;
@@ -313,9 +316,41 @@ function NavSimple() {
 		</NavBarStyle>
 	);
 }
-
+/*********************************************************************************************************************************/
 function Recipe(props) {
-	return (
+	// const [meal, setMeal] = useState(null);
+
+	// function getMeal() {
+	// 	const mealUrl = `https://www.themealdb.com/api/json/v2/${key}/search.php?s=spaghetti`;
+	// 	return fetch(mealUrl)
+	// 		.then((res) => res.json())
+	// 		.then((res) => {
+	// 			let newMeal = res.meals;
+	// 			setMeal(newMeal);
+
+	// 			let ingreds = Object.entries(meal[0]);
+	// 			// console.log(ingreds);
+	// 			let firstMeal = Object.entries(ingreds);
+	// 			// console.log(firstMeal);
+	// 			console.log(firstMeal[9]);
+	// 			console.log(firstMeal[28]);
+	// 			console.log(firstMeal[39]);
+	// 			console.log(firstMeal[48]);
+	// 		})
+	// 		.catch((err) => console.log(err));
+	// }
+
+	// useEffect(() => {
+	// 	getMeal(meal);
+	// 	// console.log(meal);
+	// 	// eslint-disable-next-line
+	// }, []);
+	// const title = meal[0].strMeal;
+
+	/**Header: str
+	 *
+	 */
+	https: return (
 		// <MainBody>
 		// 	<PhoneBody>
 		// 		<PhoneTop />
@@ -324,7 +359,7 @@ function Recipe(props) {
 				<Hero />
 				<div>
 					<RecipeHeader>
-						<HeroTextSpan>Recipe Card Title</HeroTextSpan>
+						<HeroTextSpan>Title</HeroTextSpan>
 					</RecipeHeader>
 
 					<RecipeDetailDiv>
@@ -369,9 +404,15 @@ function Recipe(props) {
 			</Content>
 			<NavBarStyle>
 				<BottomNavSection>
-					<IconDiv src={back} />
-					<IconDiv column='4' src={share} />
-					<IconDiv column='5' src={heart} />
+					<Link to='/'>
+						<IconDiv src={back} />
+					</Link>
+					<Link to='/community'>
+						<IconDiv column='5' src={share} />
+					</Link>
+					<Link to='/favorites'>
+						<IconDiv column='6' src={heart} />
+					</Link>
 
 					<Hr />
 				</BottomNavSection>

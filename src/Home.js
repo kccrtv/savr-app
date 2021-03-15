@@ -177,7 +177,7 @@ function NavBar() {
 		</NavBarStyle>
 	);
 }
-
+/*********************************************************************************************************************************/
 function Home() {
 	const [hero, setHero] = useState(null);
 	const [category, setCategory] = useState([]);
