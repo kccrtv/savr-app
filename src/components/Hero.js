@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const HeroFigure = styled.div`
 	display: grid;
@@ -39,13 +39,8 @@ const HeroTextSpan = styled.span`
 `;
 
 function Hero(props) {
-	function handleClick(event) {
-		// event.preventDefault();
-		// console.log(props);
-	}
-
 	return (
-		<Link to={'/recipe/' + props.id} onClick={handleClick} href={props.href}>
+		<Link to={'/recipe/' + props.id} href={props.href}>
 			<HeroFigure>
 				<HeroImage
 					id={props.id}

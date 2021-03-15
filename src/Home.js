@@ -1,53 +1,13 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import header from './components/assets/header.svg';
-
 import Hero from './components/Hero';
 import users from './components/assets/users-solid.svg';
 import gradcap from './components/assets/gradcap-solid.svg';
 import home from './components/assets/home-solid.svg';
 import faves from './components/assets/fire-wave-solid.svg';
 import more from './components/assets/ellipses-solid.svg';
-import NavBarCommunity from './components/NavBarCommunity';
-import NavBarSkills from './components/NavBarSkills';
-import NavBarFavorites from './components/NavBarFavorites';
-import NavBarMore from './components/NavBarMore';
-
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const key = process.env.REACT_APP_API_KEY;
-
-// STYLED COMPONENTS
-const MainBody = styled.main`
-	display: grid;
-	grid-template-rows: repeat(10, 16px 48px);
-`;
-
-const PhoneBody = styled.section`
-	margin: 0 auto;
-	width: 414px;
-	height: ${(props) => props.height || '720px'};
-	background: #ffffff;
-	box-shadow: 0 0 23px 0 #aaaaaa;
-	border-radius: 30px;
-	display: grid;
-	grid-template-rows: repeat(13, 8px 40px);
-`;
-
-const FrameTop = styled.div`
-	border-radius: 30px 0 30px 0;
-	width: 414px;
-	height: 88px;
-	margin: 0;
-	padding: 0;
-`;
-
-function PhoneTop(props) {
-	return (
-		<FrameTop>
-			<img src={header} alt='phone top' />
-		</FrameTop>
-	);
-}
 
 const Content = styled.div`
 	height: 560px;
@@ -96,16 +56,8 @@ const ThumbItemStyle = styled.li`
 `;
 
 function ThumbLink(props) {
-	function handleClick(event) {
-		// event.preventDefault();
-		// const thumbId = event.target.id;
-		// const thumbUrl = `https://www.themealdb.com/api/json/v2/${key}/lookup.php?i=`;
-		// const url = `${thumbUrl}${thumbId}`;
-		// console.log(event.target);
-		// console.log(props);
-	}
 	return (
-		<Link to={'/recipe/' + props.id} onClick={handleClick} href={props.href}>
+		<Link to={'/recipe/' + props.id} href={props.href}>
 			<ThumbItemStyle>
 				<ThumbImage
 					id={props.id}
@@ -174,24 +126,6 @@ const Hr = styled.hr`
 	border-radius: 100px;
 `;
 
-function NavBar() {
-	return (
-		<NavBarStyle>
-			<BottomNavSection>
-				<IconDiv src={users} text='Community' />
-				<IconDiv src={gradcap} text='Skills' />
-
-				<IconDiv src={home} text='Home' />
-
-				<IconDiv src={faves} text='Favorites' />
-				<IconDiv src={more} text='More' />
-
-				<Hr />
-			</BottomNavSection>
-		</NavBarStyle>
-	);
-}
-/*********************************************************************************************************************************/
 function Home({ meal }) {
 	const [hero, setHero] = useState(null);
 	const [category, setCategory] = useState([]);
@@ -225,12 +159,11 @@ function Home({ meal }) {
 	}
 
 	function getThumbUrls(thumbData) {
-		let idUrl = category.reduce((acc, curr, index) => {
+		let idUrl = category.reduce((acc, curr) => {
 			let thumbUrl = `https://www.themealdb.com/api/json/v2/${key}/lookup.php?i=`;
 			return [...acc, `${thumbUrl}${curr.idMeal}`];
 		}, []);
 		setThumbData(idUrl);
-		// console.log(thumbData);
 	}
 
 	useEffect(() => {
@@ -238,7 +171,6 @@ function Home({ meal }) {
 		getCategory(category);
 		setCategory(thumbsArr);
 		getThumbUrls(thumbData);
-
 		// eslint-disable-next-line
 	}, []);
 	const thumbUrl = `https://www.themealdb.com/api/json/v2/${key}/lookup.php?i=`;
@@ -292,18 +224,15 @@ function Home({ meal }) {
 					<Link style={{ textDecoration: 'none' }} to='/skills'>
 						<IconDiv src={gradcap} text='Skills' />
 					</Link>
-
 					<Link style={{ textDecoration: 'none' }} to='/'>
 						<IconDiv src={home} text='Home' />
 					</Link>
-
 					<Link style={{ textDecoration: 'none' }} to='/favorites'>
 						<IconDiv src={faves} text='Favorites' />
 					</Link>
 					<Link style={{ textDecoration: 'none' }} to='/more'>
 						<IconDiv src={more} text='More' />
 					</Link>
-
 					<Hr />
 				</BottomNavSection>
 			</NavBarStyle>

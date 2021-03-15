@@ -2,11 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Home from './Home';
 import Recipe from './Recipe';
-import users from './components/assets/users-solid.svg';
-import gradcap from './components/assets/gradcap-solid.svg';
-import home from './components/assets/home-solid.svg';
-import faves from './components/assets/fire-wave-solid.svg';
-import more from './components/assets/ellipses-solid.svg';
 import NavBarCommunity from './components/NavBarCommunity';
 import NavBarSkills from './components/NavBarSkills';
 import NavBarFavorites from './components/NavBarFavorites';
@@ -43,107 +38,6 @@ function PhoneTop(props) {
 		<FrameTop>
 			<img src={header} alt='phone top' />
 		</FrameTop>
-	);
-}
-
-const ThumbImage = styled.img`
-	width: ${(props) => props.width || '72px'};
-	height: ${(props) => props.height || '72px'};
-	border-radius: 10px;
-`;
-
-const ThumbItemStyle = styled.li`
-	list-style: none;
-	width: 72px;
-	height: 72px;
-	border-radius: 10px;
-	margin: 0 8px 0 0;
-	display: grid;
-	grid-template-rows: repeat(8, 8px);
-	grid-template-columns: repeat(8, 8px);
-`;
-
-function ThumbLink(props) {
-	return (
-		<a href={props.href}>
-			<ThumbItemStyle>
-				<ThumbImage key={props.id} src={props.src} alt='latest meal' />
-			</ThumbItemStyle>
-		</a>
-	);
-}
-
-const NavBarStyle = styled.nav`
-	border-radius: 0 0 30px;
-	grid-row: 31 / span 4;
-	width: 414px;
-	margin: 0 auto;
-	padding: 0;
-`;
-
-const BottomNavSection = styled.section`
-	background-color: #f6f7f8;
-	display: grid;
-	justify-content: center;
-	grid-template-columns: ${(props) => props.columns || 'repeat(5, 8ch)'};
-	border-radius: 0 0 30px 30px;
-	height: 104px;
-`;
-
-const IconDivStyle = styled.div`
-	text-align: center;
-	margin-bottom: 0px;
-	background-color: #f6f7f8;
-	display: ${(props) => props.display || 'block'};
-	grid-column: ${(props) => props.column};
-	grid-row: ${(props) => props.row};
-`;
-
-function Icon(props) {
-	return <input type='image' src={props.src} alt='icon' />;
-}
-
-const NavIconText = styled.p`
-	font-weight: 500;
-	font-size: 0.8rem;
-	margin: 0 auto;
-	background-color: #f6f7f8;
-	color: #555556;
-`;
-
-function IconDiv(props) {
-	return (
-		<IconDivStyle row={props.row} column={props.column}>
-			<Icon src={props.src} />
-			<NavIconText>{props.text}</NavIconText>
-		</IconDivStyle>
-	);
-}
-
-const Hr = styled.hr`
-	grid-row: 33;
-	grid-column: 2 / span 3;
-	width: 55%;
-	background-color: black;
-	height: 7px;
-	border-radius: 100px;
-`;
-
-function NavBar() {
-	return (
-		<NavBarStyle>
-			<BottomNavSection>
-				<IconDiv src={users} text='Community' />
-				<IconDiv src={gradcap} text='Skills' />
-
-				<IconDiv src={home} text='Home' />
-
-				<IconDiv src={faves} text='Favorites' />
-				<IconDiv src={more} text='More' />
-
-				<Hr />
-			</BottomNavSection>
-		</NavBarStyle>
 	);
 }
 
