@@ -7,7 +7,6 @@ import home from './assets/home-solid.svg';
 import faves from './assets/fire-wave-solid.svg';
 import more from './assets/ellipses-solid.svg';
 
-// STYLED COMPONENTS
 const Construction = styled.div`
 	padding: 50px;
 	height: 560px;
@@ -90,23 +89,6 @@ const Hr = styled.hr`
 	border-radius: 100px;
 `;
 
-function NavBar() {
-	return (
-		<NavBarStyle>
-			<BottomNavSection>
-				<IconDiv src={users} text='Community' />
-				<IconDiv src={gradcap} text='Skills' />
-
-				<IconDiv src={home} text='Home' />
-
-				<IconDiv src={faves} text='Favorites' />
-				<IconDiv src={more} text='More' />
-
-				<Hr />
-			</BottomNavSection>
-		</NavBarStyle>
-	);
-}
 function NavBarMore(props) {
 	return (
 		<Fragment>
