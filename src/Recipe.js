@@ -52,7 +52,7 @@ const Content = styled.div`
 
 const HeroTextSpan = styled.span`
 	position: relative;
-	bottom: -11px;
+	bottom: -4px;
 	color: #555556;
 	display: inline-block;
 	padding: 0.4rem 0;
@@ -324,7 +324,7 @@ function NavSimple() {
 const apiUrl = `https://www.themealdb.com/api/json/v2/${key}/lookup.php?i=`;
 function Recipe({ match }) {
 	const [card, setCard] = useState();
-	const [mealIngreds, setMealIngreds] = useState();
+
 	const mealId = match.params.id;
 	let url = `${apiUrl}${mealId}`;
 
@@ -332,50 +332,65 @@ function Recipe({ match }) {
 		fetch(url)
 			.then((res) => res.json())
 			.then((res) => {
+				// console.log(res);
 				let newCard = res.meals;
-				setCard(newCard);
-				console.log(card[0]);
-				let mealOne = Object.values(card[0]);
+
+				let mealOne = Object.values(newCard[0]);
 				const ingredients = mealOne.slice(9, 29);
 				const measurements = mealOne.slice(29, 49);
 				let reducedArr = measurements.reduce((acc, curr, index) => {
 					return [...acc, `${curr} ${ingredients[index]}`];
 				}, []);
-				// console.log('reducedArr', reducedArr);
-				const ingredsArr = reducedArr.filter((str) => str.length > 2);
-				// console.log('ingredsarr', ingredsArr);
-				setMealIngreds(ingredsArr);
+				const ingredsArr = reducedArr.filter(
+					(str) =>
+						str.length >= 1 &&
+						str !== 'null null' &&
+						str !== '  ' &&
+						str !== ' '
+				);
+				newCard.ingredients = ingredsArr;
+				console.log(ingredsArr);
+				const steps = mealOne[5];
+				const stepsArr = steps.toString().split('.');
+				newCard.steps = stepsArr;
+
+				// stepsArr.forEach((step, index) => {
+				// 	index++;
+				// 	console.log(index, step);
+				// });
+
+				setCard(newCard);
 			})
 			.catch((err) => console.log(err));
 		// console.log('card', card);
 	}
 
-	function getIngredients() {
-		fetch(url)
-			.then((res) => res.json())
-			.then((res) => {
-				let mealOne = res.meals[0];
-				mealOne = Object.values(card[0]);
-				const ingredients = mealOne.slice(9, 29);
-				const measurements = mealOne.slice(29, 49);
-				let reducedArr = measurements.reduce((acc, curr, index) => {
-					return [...acc, `${curr} ${ingredients[index]}`];
-				}, []);
-				// console.log('reducedArr', reducedArr);
-				const ingredsArr = reducedArr.filter((str) => str.length > 2);
-				// console.log('ingredsarr', ingredsArr);
-				setMealIngreds(ingredsArr);
-				console.log(mealIngreds);
-			})
-			.catch((err) => console.log(err));
-	}
+	// function getIngredients() {
+	// 	fetch(url)
+	// 		.then((res) => res.json())
+	// 		.then((res) => {
+	// 			let mealOne = res.meals[0];
+	// 			mealOne = Object.values(card[0]);
+	// 			const ingredients = mealOne.slice(9, 29);
+	// 			const measurements = mealOne.slice(29, 49);
+	// 			let reducedArr = measurements.reduce((acc, curr, index) => {
+	// 				return [...acc, `${curr} ${ingredients[index]}`];
+	// 			}, []);
+	// 			// console.log('reducedArr', reducedArr);
+	// 			const ingredsArr = reducedArr.filter((str) => str.length > 2);
+	// 			// console.log('ingredsarr', ingredsArr);
+	// 			setMealIngreds(ingredsArr);
+	// 			console.log(mealIngreds);
+	// 		})
+	// 		.catch((err) => console.log(err));
+	// }
 
 	// setMealIngreds(ingredsArr);
 
 	useEffect(() => {
 		getCard(card);
 		// getIngredients(card);
-		console.log(mealIngreds);
+		// console.log(mealIngreds);
 		// eslint-disable-next-line
 	}, []);
 
@@ -469,18 +484,21 @@ function Recipe({ match }) {
 						</RecipeHeaderDetailStyle>
 						<CheckListTable>
 							<CheckListTableUl>
-								{mealIngreds
-									? mealIngreds.map((ingredient) => (
-											<CheckListTableLi text={ingredient} />
-									  ))
-									: null}
+								{card.ingredients.map((ingredient) => (
+									<CheckListTableLi text={ingredient} />
+								))}
 							</CheckListTableUl>
 						</CheckListTable>
 
 						<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
 							Steps
 						</RecipeHeaderDetailStyle>
-						<RecipeStep header='1' text={card[0].strInstructions} />
+						{card.steps.map((step, index) => {
+							if (step) {
+								index++;
+								return <RecipeStep header={index} text={step} />;
+							}
+						})}
 					</section>
 				</Content>
 			) : null}
@@ -550,5 +568,5 @@ export default Recipe;
 									text={`${card[0].strMeasure20} ${card[0].strIngredient20}`}></CheckListTableLi>
 								<CheckListTableLi text='chefs knife'></CheckListTableLi>
 								<CheckListTableLi text='saute pan'></CheckListTableLi>
-
+<RecipeStep header='1' text={card[0].strInstructions} />
  */
