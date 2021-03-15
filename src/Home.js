@@ -95,10 +95,22 @@ const ThumbItemStyle = styled.li`
 `;
 
 function ThumbLink(props) {
+	function handleClick(event) {
+		event.preventDefault();
+		// const thumbId = event.target.id;
+		// const thumbUrl = `https://www.themealdb.com/api/json/v2/${key}/lookup.php?i=`;
+		// const url = `${thumbUrl}${thumbId}`;
+		console.log(event.target.dataset);
+	}
 	return (
-		<a href={props.href}>
+		<a onClick={handleClick} href={props.href}>
 			<ThumbItemStyle>
-				<ThumbImage key={props.id} src={props.src} alt='latest meal' />
+				<ThumbImage
+					id={props.id}
+					key={props.id}
+					src={props.src}
+					alt='latest meal'
+				/>
 			</ThumbItemStyle>
 		</a>
 	);
@@ -181,6 +193,7 @@ function NavBar() {
 function Home() {
 	const [hero, setHero] = useState(null);
 	const [category, setCategory] = useState([]);
+	const [thumbData, setThumbData] = useState(null);
 	const thumbsArr = [];
 	const rowOne = category.slice(0, 4);
 	const rowTwo = category.slice(5, 9);
@@ -209,12 +222,24 @@ function Home() {
 			.catch((err) => console.log(err));
 	}
 
+	function getThumbUrls(thumbData) {
+		let idUrl = category.reduce((acc, curr, index) => {
+			let thumbUrl = `https://www.themealdb.com/api/json/v2/${key}/lookup.php?i=`;
+			return [...acc, `${thumbUrl}${curr.idMeal}`];
+		}, []);
+		setThumbData(idUrl);
+		// console.log(thumbData);
+	}
+
 	useEffect(() => {
 		getHero(hero);
 		getCategory(category);
 		setCategory(thumbsArr);
+		getThumbUrls(thumbData);
+
 		// eslint-disable-next-line
 	}, []);
+	let thumbUrl = `https://www.themealdb.com/api/json/v2/${key}/lookup.php?i=`;
 
 	return (
 		<Fragment>
@@ -233,7 +258,11 @@ function Home() {
 				<ThumbContainer>
 					<ThumbUnorderedList>
 						{rowOne.map((meal) => (
-							<ThumbLink href='' key={meal.idMeal} src={meal.strMealThumb} />
+							<ThumbLink
+								href={`${thumbUrl}${meal.idMeal}`}
+								key={meal.idMeal}
+								src={meal.strMealThumb}
+							/>
 						))}
 					</ThumbUnorderedList>
 				</ThumbContainer>
@@ -242,7 +271,12 @@ function Home() {
 				<ThumbContainer>
 					<ThumbUnorderedList>
 						{rowTwo.map((meal) => (
-							<ThumbLink href='' key={meal.idMeal} src={meal.strMealThumb} />
+							<ThumbLink
+								href={`${thumbUrl}${meal.idMeal}`}
+								id={meal.idMeal}
+								key={meal.idMeal}
+								src={meal.strMealThumb}
+							/>
 						))}
 					</ThumbUnorderedList>
 				</ThumbContainer>

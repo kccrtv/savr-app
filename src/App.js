@@ -184,6 +184,25 @@ function NavBar() {
 }
 
 function App() {
+	// function getCard() {
+	// 	const mealOne = Object.values(meals[0]);
+
+	// 	// USE THISSSSS
+	// 	// const ingredients = mealOne.slice(9, 29);
+	// 	// const measurements = mealOne.slice(29, 49);
+	// 	// let newArr = measurements.reduce((acc, current, index) => {
+	// 	//   return [...acc, `${current} ${ingredients[index]}`];
+	// 	// }, []);
+
+	// 	// SPLITTING UP THE STEPS
+	// 	const steps = mealOne[5];
+	// 	let stepString = steps.toString().split('.');
+	// 	// console.log(stepString);
+
+	// 	//ACCESSING THE VIDEO
+	// 	// console.log(mealOne[8]);
+	// }
+
 	// const [hero, setHero] = useState(null);
 	// const [category, setCategory] = useState([]);
 	// const thumbsArr = [];

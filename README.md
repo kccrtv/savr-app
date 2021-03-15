@@ -13,3 +13,12 @@ https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warni
 
 figma ui
 https://stackoverflow.com/questions/38824349/how-to-convert-an-object-to-an-array-of-key-value-pairs-in-javascript
+/**https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
+ * https://www.javascripttutorial.net/object/convert-an-object-to-an-array-in-javascript/
+ * https://stackoverflow.com/questions/32937181/javascript-es6-map-multiple-arrays
+ * https://www.w3schools.com/jsref/jsref_tostring_array.asp
+ * https://www.jquery-az.com/javascript-string-split-tutorial/
+ */
