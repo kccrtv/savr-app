@@ -282,7 +282,6 @@ function Recipe({ match }) {
 							Steps
 						</RecipeHeaderDetailStyle>
 						{card.steps.map((step, index) => {
-							// eslint-disable-next-line
 							if (step) {
 								index++;
 								return <RecipeStep header={index} text={step} />;
