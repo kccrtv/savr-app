@@ -268,7 +268,6 @@ function Recipe({ match }) {
 								<RecipeSkill href={card[0].strYoutube} text='Watch the video' />
 							</Fragment>
 						)}
-
 						<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
 							Ingredients
 						</RecipeHeaderDetailStyle>
@@ -279,11 +278,11 @@ function Recipe({ match }) {
 								))}
 							</CheckListTableUl>
 						</CheckListTable>
-
 						<RecipeHeaderDetailStyle padding='8px 0' weight='700'>
 							Steps
 						</RecipeHeaderDetailStyle>
 						{card.steps.map((step, index) => {
+							// eslint-disable-next-line
 							if (step) {
 								index++;
 								return <RecipeStep header={index} text={step} />;
