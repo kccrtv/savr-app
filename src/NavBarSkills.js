@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import users from './assets/users-solid.svg';
-import gradcap from './assets/gradcap-solid.svg';
-import home from './assets/home-solid.svg';
-import faves from './assets/fire-wave-solid.svg';
-import more from './assets/ellipses-solid.svg';
+import users from './users-solid.svg';
+import gradcap from './gradcap-solid.svg';
+import home from './home-solid.svg';
+import faves from './fire-wave-solid.svg';
+import more from './ellipses-solid.svg';
 
 const Construction = styled.div`
 	padding: 50px;
@@ -89,11 +89,11 @@ const Hr = styled.hr`
 	border-radius: 100px;
 `;
 
-function NavBarMore(props) {
+function NavBarSkills(props) {
 	return (
 		<Fragment>
 			<Construction>
-				<HeroText>More</HeroText>
+				<HeroText>Skills</HeroText>
 				<HeroTextSpan>Under Construction!</HeroTextSpan>
 			</Construction>
 			<NavBarStyle>
@@ -123,4 +123,4 @@ function NavBarMore(props) {
 	);
 }
 
-export default NavBarMore;
+export default NavBarSkills;
