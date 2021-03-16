@@ -41,7 +41,7 @@
 
 # Getting Started/Installation Instructions
 
-1. Support [TheMealDB on Patreon](https://www.patreon.com/thedatadb) for a personalized API key if not, read [TheMealDB documentation](https://www.themealdb.com/api.php) here on how to implement the test environment 
+1. Support [TheMealDB on Patreon](https://www.patreon.com/thedatadb) for a personalized API key. If not, read [TheMealDB documentation](https://www.themealdb.com/api.php) here on how to implement the test environment.
 2. Fork and clone this repository.
 3. Change into the new directory.
 4. Install dependencies ```npm i``` and start the app ```npm run start```
