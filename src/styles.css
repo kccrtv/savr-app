@@ -10,3 +10,9 @@ body {
 	grid-template-rows: repeat(8, 88px);
 	
 }
+@media(max-width: 720px) {
+    body {
+		margin: 0;
+		padding: 0;
+	}
+  }
