@@ -1,9 +1,9 @@
 {
   "name": "savr-app",
   "version": "0.1.0",
-   "engines": {
+  "engines": {
     "node": "12.18.3",
-    "npm" : "7.5.2"
+    "npm": "7.5.2"
   },
   "private": true,
   "dependencies": {
