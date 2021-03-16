@@ -32,7 +32,7 @@
 
 ### Development
 
-- VS Code
+- VS Code, CodeSandbox
 - Google Chrome + Developer Tools
 - Mozilla Firefox + Developer Tools
 - HTML
@@ -41,9 +41,10 @@
 
 # Getting Started/Installation Instructions
 
-1. Fork and clone this repository.
-2. Change into the new directory.
-3. Install dependencies ```npm i``` and start the app ```npm run start```
+1. Support [TheMealDB on Patreon](https://www.patreon.com/thedatadb) for a personalized API key. If not, read [TheMealDB documentation](https://www.themealdb.com/api.php) here on how to implement the test environment.
+2. Fork and clone this repository.
+3. Change into the new directory.
+4. Install dependencies ```npm i``` and start the app ```npm run start```
 
 # Contribution Guidelines
 The contribution process currently relies on some knowledge of working with Github and writing in Markdown. Here are some resources/helpful links to understand both: 

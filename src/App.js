@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import Home from './Home';
 import Recipe from './Recipe';
-import NavBarCommunity from './components/NavBarCommunity';
-import NavBarSkills from './components/NavBarSkills';
-import NavBarFavorites from './components/NavBarFavorites';
-import NavBarMore from './components/NavBarMore';
-import header from './components/assets/header.svg';
+import NavBarCommunity from './NavBarCommunity';
+import NavBarSkills from './NavBarSkills';
+import NavBarFavorites from './NavBarFavorites';
+import NavBarMore from './NavBarMore';
+import header from './header.svg';
 import { Route, Redirect } from 'react-router-dom';
 
 const MainBody = styled.main`

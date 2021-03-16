@@ -1,11 +1,11 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Hero from './components/Hero';
-import users from './components/assets/users-solid.svg';
-import gradcap from './components/assets/gradcap-solid.svg';
-import home from './components/assets/home-solid.svg';
-import faves from './components/assets/fire-wave-solid.svg';
-import more from './components/assets/ellipses-solid.svg';
+import Hero from './Hero';
+import users from './users-solid.svg';
+import gradcap from './gradcap-solid.svg';
+import home from './home-solid.svg';
+import faves from './fire-wave-solid.svg';
+import more from './ellipses-solid.svg';
 import { Link } from 'react-router-dom';
 const key = process.env.REACT_APP_API_KEY;
 
