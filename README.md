@@ -2,7 +2,7 @@
 
 ### Project 2 for General Assembly's remote Software Engineering Immersive program
 
-> The Savr app is an single-page React application using third-party API data and React Router for navigation features. This was a former user experience (UX) design project from 2019 that I brought back to life from a developer's perspective. Essentially Savr aims to help at-home chefs come prepared when following a recipe. The awesome folx at [The MealDB](https://www.themealdb.com/api.php/) offer a free API of recipes and options to filter by category, area of origin, and ingredients. 
+> The Savr App is a single-page React application using third-party API data and React Router for navigation features. This was a former user experience (UX) design project from 2019 that I brought back to life from a developer's perspective. Essentially Savr aims to help at-home chefs come prepared when following a recipe. The awesome folx at [The MealDB](https://www.themealdb.com/api.php/) offer a free API of recipes and options to filter by category, area of origin, and ingredients. 
  
 
 # Screenshots / Lo-Fi to Hi-Fi
