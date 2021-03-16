@@ -6,7 +6,7 @@ import NavBarCommunity from './components/NavBarCommunity';
 import NavBarSkills from './components/NavBarSkills';
 import NavBarFavorites from './components/NavBarFavorites';
 import NavBarMore from './components/NavBarMore';
-import header from './components/assets/header.svg';
+import header from '../src/components/assets/header.svg';
 import { Route, Redirect } from 'react-router-dom';
 
 const MainBody = styled.main`
