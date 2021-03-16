@@ -225,6 +225,7 @@ function Recipe({ match }) {
 				const ingredsArr = reducedArr.filter(
 					(str) =>
 						str.length >= 1 &&
+						str !== 'null' &&
 						str !== 'null null' &&
 						str !== '  ' &&
 						str !== ' '
