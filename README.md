@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Savr App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Project 2 for General Assembly's remote Software Engineering Immersive program
 
-## Available Scripts
+> The Savr app is an single-page React application using third-party API data and React Router for navigation features. This was a former user experience (UX) design project from 2019 that I brought back to life from a developer's perspective. Essentially Savr aims to help at-home chefs come prepared when following a recipe. The awesome folx at [The MealDB](https://www.themealdb.com/api.php/) offer a free API of recipes and options to filter by category, area of origin, and ingredients. 
+ 
 
-In the project directory, you can run:
+# Screenshots / Lo-Fi to Hi-Fi
+### App Demo
+<img src="public/savr-mockup.gif" alt="mockup gif">
 
-### `npm start`
+### Main Recipe Screen (Design to Dev)
+<img src="public/main-recipe-screen.png" alt="mockup gif">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Recipe Page (Design to Dev)
+<img src="public/recipe-tab.png" alt="mockup gif">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+# Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Organization / Guidance
 
-### `npm run build`
+- Discord
+- Slack
+- Zoom
+- Microsoft OneNote
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Design
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Figma
+- Giphy
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Development
 
-### `npm run eject`
+- VS Code
+- Google Chrome + Developer Tools
+- Mozilla Firefox + Developer Tools
+- HTML
+- CSS: CSS Grid, CSS Flexbox
+- JavaScript: React.js, React Router, React Styled-Components
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Getting Started/Installation Instructions
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Fork and clone this repository.
+2. Change into the new directory.
+3. Install dependencies ```npm i``` and start the app ```npm run start```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Contribution Guidelines
+The contribution process currently relies on some knowledge of working with Github and writing in Markdown. Here are some resources/helpful links to understand both: 
+- [Chaser Pettit's introduction to the GitHub workflow](https://gist.github.com/Chaser324/ce0505fbed06b947d962)
+- [Basic Markdown Syntax](https://www.markdownguide.org/basic-syntax/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Requests to contribute (contribute to your code, identify bugs, and/or propose improvements) can be made via [pull request](https://github.com/kccrtv/savr-app/compare) or [issue](https://github.com/kccrtv/savr-app/issues/new/choose). Thank you!
 
-## Learn More
+### References/Credits:
+https://www.udemy.com/course/the-complete-web-development-bootcamp/
+https://css-tricks.com/text-input-expanding-bottom-border/
+https://developer.mozilla.org/en-US/docs/Web/CSS/repeat()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
+https://github.com/styled-components/styled-components/issues/3045
+https://www.figma.com/community/file/809487622678629513
+https://www.figma.com/community/file/852445385275060830
+https://www.figma.com/community/file/891218395377608809
+https://www.figma.com/community/file/848318135747364351
+https://flaviocopes.com/jsx-return-multiple-elements/
+https://fontawesome.com/license
+https://www.javascripttutorial.net/object/convert-an-object-to-an-array-in-javascript/
+https://www.jquery-az.com/javascript-string-split-tutorial/
+https://stackoverflow.com/questions/8683528/embed-image-in-a-button-element
+https://stackoverflow.com/questions/32937181/javascript-es6-map-multiple-arrays
+https://stackoverflow.com/questions/38824349/how-to-convert-an-object-to-an-array-of-key-value-pairs-in-javascript
+https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook
+https://www.transparenttextures.com/
+https://www.w3schools.com/cssref/css_units.asp
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_hor_scroll
+https://www.w3schools.com/jsref/jsref_tostring_array.asp
+https://www.w3docs.com/snippets/css/how-to-set-the-size-of-a-checkbox-with-html-and-css.html
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> Last but not least, the GA Instructors for the SEIR-201 course and my very supportive cohort ("the greatest people you will ever meet")
