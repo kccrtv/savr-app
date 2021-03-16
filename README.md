@@ -32,7 +32,7 @@
 
 ### Development
 
-- VS Code
+- VS Code, CodeSandbox
 - Google Chrome + Developer Tools
 - Mozilla Firefox + Developer Tools
 - HTML
